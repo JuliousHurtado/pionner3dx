@@ -17,14 +17,17 @@ SET(CMAKE_TARGET_DEFINITIONS
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/champion/catkin_ws/build/common_code/CMakeFiles/common_code.dir/DependInfo.cmake"
+  "/home/champion/catkin_ws/build/newmat/CMakeFiles/newmat.dir/DependInfo.cmake"
   )
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/champion/catkin_ws/devel/include"
   "/usr/include/opencv"
   "/opt/ros/indigo/include"
   "/home/champion/catkin_ws/src/face_detector/include"
+  "/home/champion/catkin_ws/src/face_detector/../newmat/include/newmat"
+  "/home/champion/catkin_ws/src/face_detector/../common_code/include/common_code"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "common_code")
+set(common_code_MAINTAINER "ivan <ivan@todo.todo>")
+set(common_code_DEPRECATED "")
+set(common_code_VERSION "0.0.0")
+set(common_code_BUILD_DEPENDS "message_generation" "roscpp" "rospy" "std_msgs" "tf")
+set(common_code_RUN_DEPENDS "message_runtime" "roscpp" "rospy" "std_msgs" "tf")
+set(common_code_BUILDTOOL_DEPENDS "catkin")

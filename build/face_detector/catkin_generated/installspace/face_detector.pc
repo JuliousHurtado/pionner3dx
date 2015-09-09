@@ -3,6 +3,6 @@ prefix=/home/champion/catkin_ws/install
 Name: face_detector
 Description: Description of face_detector
 Version: 0.0.0
-Cflags: -I/home/champion/catkin_ws/install/include
+Cflags: 
 Libs: -L/home/champion/catkin_ws/install/lib 
-Requires: message_runtime
+Requires: 
