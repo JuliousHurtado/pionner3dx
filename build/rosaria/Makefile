@@ -234,48 +234,6 @@ dynamic_reconfigure_generate_messages_py/fast:
 .PHONY : dynamic_reconfigure_generate_messages_py/fast
 
 # Convenience name for target.
-rosaria/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule:
-	cd /home/champion/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosaria/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
-.PHONY : rosaria/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_cpp: rosaria/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
-.PHONY : nav_msgs_generate_messages_cpp
-
-# fast build rule for target.
-nav_msgs_generate_messages_cpp/fast:
-	cd /home/champion/catkin_ws/build && $(MAKE) -f rosaria/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make rosaria/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
-.PHONY : nav_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-rosaria/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule:
-	cd /home/champion/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosaria/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
-.PHONY : rosaria/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_lisp: rosaria/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
-.PHONY : nav_msgs_generate_messages_lisp
-
-# fast build rule for target.
-nav_msgs_generate_messages_lisp/fast:
-	cd /home/champion/catkin_ws/build && $(MAKE) -f rosaria/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make rosaria/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
-.PHONY : nav_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-rosaria/CMakeFiles/nav_msgs_generate_messages_py.dir/rule:
-	cd /home/champion/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosaria/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
-.PHONY : rosaria/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_py: rosaria/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
-.PHONY : nav_msgs_generate_messages_py
-
-# fast build rule for target.
-nav_msgs_generate_messages_py/fast:
-	cd /home/champion/catkin_ws/build && $(MAKE) -f rosaria/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make rosaria/CMakeFiles/nav_msgs_generate_messages_py.dir/build
-.PHONY : nav_msgs_generate_messages_py/fast
-
-# Convenience name for target.
 rosaria/CMakeFiles/rosaria_gencfg.dir/rule:
 	cd /home/champion/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rosaria/CMakeFiles/rosaria_gencfg.dir/rule
 .PHONY : rosaria/CMakeFiles/rosaria_gencfg.dir/rule
@@ -428,9 +386,6 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... nav_msgs_generate_messages_cpp"
-	@echo "... nav_msgs_generate_messages_lisp"
-	@echo "... nav_msgs_generate_messages_py"
 	@echo "... rebuild_cache"
 	@echo "... rosaria_gencfg"
 	@echo "... rosaria_gencpp"
