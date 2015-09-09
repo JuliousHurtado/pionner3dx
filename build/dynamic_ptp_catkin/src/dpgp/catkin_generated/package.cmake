@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "dpgp")
+set(dpgp_MAINTAINER "ivan <ivan@todo.todo>")
+set(dpgp_DEPRECATED "")
+set(dpgp_VERSION "0.0.0")
+set(dpgp_BUILD_DEPENDS "common_code" "newmat" "roscpp" "rospy" "sogp")
+set(dpgp_RUN_DEPENDS "common_code" "newmat" "roscpp" "rospy" "sogp")
+set(dpgp_BUILDTOOL_DEPENDS "catkin")

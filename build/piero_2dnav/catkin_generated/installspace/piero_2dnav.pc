@@ -1,0 +1,8 @@
+prefix=/home/champion/catkin_ws/install
+
+Name: piero_2dnav
+Description: Description of piero_2dnav
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/champion/catkin_ws/install/lib 
+Requires: 

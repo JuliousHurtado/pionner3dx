@@ -1,0 +1,44 @@
+<launch>
+  <!-- <master auto="start"/> -->
+
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.1 0.0 0.2 0.0 0.0 0.0 /base_link /laser 100"/>
+ 
+
+  <!-- Run the map server -->
+  <!-- <node name="map_server" pkg="map_server" type="map_server" args="/home/champion/catkin_ws/maps/dcc.pgm 0.05"/> -->
+
+  <!--- Run AMCL -->
+  <include file="$(find amcl)/examples/amcl_diff.launch" />
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="controller_frequency" value="0.5" />
+    <!-- <param name="base_global_planner" value="carrot_planner/CarrotPlanner"/> -->
+    <remap from="/cmd_vel" to="/RosAria/cmd_vel" />
+    <remap from="/odom" to="/RosAria/pose" />
+
+    <param name="oscillation_timeout" value="0.0" />
+    <param name="oscillation_distance" value="0.0" />
+
+    <!--
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    -->
+    
+
+    <rosparam file="$(find piero_2dnav)/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find piero_2dnav)/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find piero_2dnav)/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find piero_2dnav)/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find piero_2dnav)/base_local_planner_params.yaml" command="load"/>
+
+    <!--
+    <rosparam file="$(find piero_2dnav)/dwa_local_planner_params.yaml" command="load" />
+    -->
+
+  </node>
+</launch>
+
+
+   <!-- <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0.0 0.0 0.0 0 0 0.0 /map /odom 1000"/> --> 
+  <!-- <node pkg="tf" type="static_transform_publisher" name="map_base_linkr" args="0.0 0.0 0.0 0 0 0.0 /map /base_link 100"/> -->
+ <!-- <node pkg="tf" type="static_transform_publisher" name="odom_to_base_link" args="0.0 0.0 0.0 0 0 0.0 /odom /base_link 100"/> -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link" args="0.0 0.0 0.0 0 0 0.0 /base_footprint /base_link 100"/> -->

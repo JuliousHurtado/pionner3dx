@@ -1,0 +1,8 @@
+prefix=/home/champion/catkin_ws/devel
+
+Name: sicktoolbox
+Description: Description of sicktoolbox
+Version: 1.0.103
+Cflags: -I/home/champion/catkin_ws/src/sicktoolbox/include
+Libs: -L/home/champion/catkin_ws/devel/lib -lSickLD -lSickLMS1xx -lSickLMS2xx
+Requires: 

@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "sicktoolbox")
+set(sicktoolbox_MAINTAINER "Chad Rockey <chadrockey@gmail.com>")
+set(sicktoolbox_DEPRECATED "")
+set(sicktoolbox_VERSION "1.0.103")
+set(sicktoolbox_BUILD_DEPENDS )
+set(sicktoolbox_RUN_DEPENDS )
+set(sicktoolbox_BUILDTOOL_DEPENDS "catkin")

@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "newmat")
+set(newmat_MAINTAINER "ivan <ivan@todo.todo>")
+set(newmat_DEPRECATED "")
+set(newmat_VERSION "0.0.0")
+set(newmat_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
+set(newmat_RUN_DEPENDS "roscpp" "rospy" "std_msgs")
+set(newmat_BUILDTOOL_DEPENDS "catkin")

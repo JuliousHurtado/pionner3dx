@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "il_map_tools")
+set(il_map_tools_MAINTAINER "ivan <ivan@todo.todo>")
+set(il_map_tools_DEPRECATED "")
+set(il_map_tools_VERSION "0.0.0")
+set(il_map_tools_BUILD_DEPENDS "message_generation" "nav_msgs" "roscpp" "rospy" "std_msgs" "std_srvs" "tf")
+set(il_map_tools_RUN_DEPENDS "message_runtime" "nav_msgs" "roscpp" "rospy" "std_msgs" "std_srvs" "tf")
+set(il_map_tools_BUILDTOOL_DEPENDS "catkin")

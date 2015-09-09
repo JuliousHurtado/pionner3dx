@@ -1,0 +1,8 @@
+prefix=/home/champion/catkin_ws/install
+
+Name: openni2_tracker
+Description: Description of openni2_tracker
+Version: 0.1.0
+Cflags: 
+Libs: -L/home/champion/catkin_ws/install/lib 
+Requires: 

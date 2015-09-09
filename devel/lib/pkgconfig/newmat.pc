@@ -1,0 +1,8 @@
+prefix=/home/champion/catkin_ws/devel
+
+Name: newmat
+Description: Description of newmat
+Version: 0.0.0
+Cflags: -I/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/newmat/include
+Libs: -L/home/champion/catkin_ws/devel/lib -lnewmat
+Requires: roscpp rospy std_msgs

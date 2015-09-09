@@ -1,0 +1,8 @@
+prefix=/home/champion/catkin_ws/devel
+
+Name: dynamic_ptp
+Description: Description of dynamic_ptp
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/champion/catkin_ws/devel/lib 
+Requires: 

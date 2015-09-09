@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "face_detector")
+set(face_detector_MAINTAINER "ivan <ivan@todo.todo>")
+set(face_detector_DEPRECATED "")
+set(face_detector_VERSION "0.0.0")
+set(face_detector_BUILD_DEPENDS "message_generation" "cv_bridge" "image_transport" "map_msgs" "roscpp" "rospy" "std_msgs" "std_srvs" "tf")
+set(face_detector_RUN_DEPENDS "message_runtime" "cv_bridge" "image_transport" "map_msgs" "roscpp" "rospy" "std_msgs" "std_srvs" "tf")
+set(face_detector_BUILDTOOL_DEPENDS "catkin")

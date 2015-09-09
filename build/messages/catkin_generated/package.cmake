@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "messages")
+set(messages_MAINTAINER "champion <champion@todo.todo>")
+set(messages_DEPRECATED "")
+set(messages_VERSION "0.0.0")
+set(messages_BUILD_DEPENDS "message_generation" "roscpp" "rospy" "std_msgs")
+set(messages_RUN_DEPENDS "message_runtime" "roscpp" "rospy" "std_msgs")
+set(messages_BUILDTOOL_DEPENDS "catkin")

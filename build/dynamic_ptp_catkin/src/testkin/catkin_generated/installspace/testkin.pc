@@ -1,0 +1,8 @@
+prefix=/home/champion/catkin_ws/install
+
+Name: testkin
+Description: Description of testkin
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/champion/catkin_ws/install/lib 
+Requires: 

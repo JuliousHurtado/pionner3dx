@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/champion/catkin_ws/devel/setup.sh

@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "piero_2dnav")
+set(piero_2dnav_MAINTAINER "grima <grima@todo.todo>")
+set(piero_2dnav_DEPRECATED "")
+set(piero_2dnav_VERSION "0.0.0")
+set(piero_2dnav_BUILD_DEPENDS "move_base" "my_odom_configuration_dep" "my_sensor_configuration_dep" "my_tf_configuration_dep")
+set(piero_2dnav_RUN_DEPENDS "move_base" "my_odom_configuration_dep" "my_sensor_configuration_dep" "my_tf_configuration_dep")
+set(piero_2dnav_BUILDTOOL_DEPENDS "catkin")

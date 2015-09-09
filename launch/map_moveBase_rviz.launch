@@ -1,0 +1,8 @@
+<launch>
+  <!-- Run the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="/home/champion/catkin_ws/maps/dcc.pgm 0.05"/>
+
+  <include file="$(find amr-ros-config)/launch/rviz+urdf_state.launch" />
+  <include file="$(find piero_2dnav)/move_base.launch" />
+
+</launch>

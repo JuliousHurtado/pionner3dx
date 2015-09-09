@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "sicktoolbox_wrapper")
+set(sicktoolbox_wrapper_MAINTAINER "Chad Rockey <chadrockey@gmail.com>")
+set(sicktoolbox_wrapper_DEPRECATED "")
+set(sicktoolbox_wrapper_VERSION "2.5.3")
+set(sicktoolbox_wrapper_BUILD_DEPENDS "roscpp" "rosconsole" "sensor_msgs" "sicktoolbox" "diagnostic_updater")
+set(sicktoolbox_wrapper_RUN_DEPENDS "roscpp" "rosconsole" "sensor_msgs" "sicktoolbox" "diagnostic_updater")
+set(sicktoolbox_wrapper_BUILDTOOL_DEPENDS "catkin")

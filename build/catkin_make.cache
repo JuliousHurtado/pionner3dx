@@ -1,0 +1,2 @@
+amr-ros-config/description:amr-ros-config/gazebo:amr-ros-config/launch:messages:piero_2dnav:robot_setup_tf:rosaria:sicktoolbox:sicktoolbox_wrapper:skeleton_tracker
+-DCATKIN_DEVEL_PREFIX=/home/champion/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/champion/catkin_ws/install -G Unix Makefiles

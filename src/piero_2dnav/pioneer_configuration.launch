@@ -1,0 +1,15 @@
+<launch>
+  <node pkg="sicktoolbox_wrapper" type="sicktoolbox" name="sicktoolbox" output="screen">
+    <param name="port" value="/dev/ttyUSB1" />
+    <param name="baud" value="38400" />
+    <param name="resolution" value="1.0" />
+    <param name="angle" value="180" />
+  </node>
+
+  <node pkg="rosaria" type="RosAria" name="rosaria" output="screen">
+    <param name="port" value="/dev/ttyUSB0" />
+  </node>
+
+  <node pkg="robot_setup_tf" type="robot_setup_tf" name="transform" output="screen">
+  </node>
+</launch>

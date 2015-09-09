@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "dynamic_ptp")
+set(dynamic_ptp_MAINTAINER "ivan <ivan@todo.todo>")
+set(dynamic_ptp_DEPRECATED "")
+set(dynamic_ptp_VERSION "0.0.0")
+set(dynamic_ptp_BUILD_DEPENDS "common_code" "dpgp" "nav_msgs" "newmat" "ptp" "roscpp" "rospy" "sogp" "std_msgs" "tf")
+set(dynamic_ptp_RUN_DEPENDS "common_code" "dpgp" "nav_msgs" "newmat" "ptp" "roscpp" "rospy" "sogp" "std_msgs" "tf")
+set(dynamic_ptp_BUILDTOOL_DEPENDS "catkin")
