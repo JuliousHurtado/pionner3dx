@@ -4,19 +4,19 @@ python3 = True if sys.hexversion > 0x03000000 else False
 import genpy
 import struct
 
-import genpy
 import std_msgs.msg
 
 class Punto(genpy.Message):
-  _md5sum = "feca8e1b82456800d729e7700a801e9b"
+  _md5sum = "3e2dde8e5483b601bd85a0bcfe1e9b50"
   _type = "messages/Punto"
   _has_header = True #flag to mark the presence of a Header object
   _full_text = """Header header
-int32 x
-int32 y
-int32 angulo_pan
-int32 angulo_tilt
-time tiempo
+float64 x
+float64 y
+float64 angulo_pan
+float64 angulo_tilt
+float64 tiempo
+
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -37,7 +37,7 @@ string frame_id
 
 """
   __slots__ = ['header','x','y','angulo_pan','angulo_tilt','tiempo']
-  _slot_types = ['std_msgs/Header','int32','int32','int32','int32','time']
+  _slot_types = ['std_msgs/Header','float64','float64','float64','float64','float64']
 
   def __init__(self, *args, **kwds):
     """
@@ -59,22 +59,22 @@ string frame_id
       if self.header is None:
         self.header = std_msgs.msg.Header()
       if self.x is None:
-        self.x = 0
+        self.x = 0.
       if self.y is None:
-        self.y = 0
+        self.y = 0.
       if self.angulo_pan is None:
-        self.angulo_pan = 0
+        self.angulo_pan = 0.
       if self.angulo_tilt is None:
-        self.angulo_tilt = 0
+        self.angulo_tilt = 0.
       if self.tiempo is None:
-        self.tiempo = genpy.Time()
+        self.tiempo = 0.
     else:
       self.header = std_msgs.msg.Header()
-      self.x = 0
-      self.y = 0
-      self.angulo_pan = 0
-      self.angulo_tilt = 0
-      self.tiempo = genpy.Time()
+      self.x = 0.
+      self.y = 0.
+      self.angulo_pan = 0.
+      self.angulo_tilt = 0.
+      self.tiempo = 0.
 
   def _get_types(self):
     """
@@ -100,7 +100,7 @@ string frame_id
       else:
         buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_struct_4i2I.pack(_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt, _x.tiempo.secs, _x.tiempo.nsecs))
+      buff.write(_struct_5d.pack(_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt, _x.tiempo))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
 
@@ -112,8 +112,6 @@ string frame_id
     try:
       if self.header is None:
         self.header = std_msgs.msg.Header()
-      if self.tiempo is None:
-        self.tiempo = genpy.Time()
       end = 0
       _x = self
       start = end
@@ -130,9 +128,8 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 24
-      (_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt, _x.tiempo.secs, _x.tiempo.nsecs,) = _struct_4i2I.unpack(str[start:end])
-      self.tiempo.canon()
+      end += 40
+      (_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt, _x.tiempo,) = _struct_5d.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -157,7 +154,7 @@ string frame_id
       else:
         buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_struct_4i2I.pack(_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt, _x.tiempo.secs, _x.tiempo.nsecs))
+      buff.write(_struct_5d.pack(_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt, _x.tiempo))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
 
@@ -170,8 +167,6 @@ string frame_id
     try:
       if self.header is None:
         self.header = std_msgs.msg.Header()
-      if self.tiempo is None:
-        self.tiempo = genpy.Time()
       end = 0
       _x = self
       start = end
@@ -188,13 +183,12 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 24
-      (_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt, _x.tiempo.secs, _x.tiempo.nsecs,) = _struct_4i2I.unpack(str[start:end])
-      self.tiempo.canon()
+      end += 40
+      (_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt, _x.tiempo,) = _struct_5d.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
+_struct_5d = struct.Struct("<5d")
 _struct_3I = struct.Struct("<3I")
-_struct_4i2I = struct.Struct("<4i2I")

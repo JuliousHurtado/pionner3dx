@@ -34,10 +34,16 @@ ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/messages/msg" TYPE FILE FILES
-    "/home/champion/catkin_ws/src/messages/msg/Num.msg"
     "/home/champion/catkin_ws/src/messages/msg/Camino.msg"
     "/home/champion/catkin_ws/src/messages/msg/Punto.msg"
-    "/home/champion/catkin_ws/src/messages/msg/Pan_tilt.msg"
+    "/home/champion/catkin_ws/src/messages/msg/Pan_tilt_mess.msg"
+    )
+ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+
+IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/messages/srv" TYPE FILE FILES
+    "/home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv"
+    "/home/champion/catkin_ws/src/messages/srv/AddTwoInts.srv"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

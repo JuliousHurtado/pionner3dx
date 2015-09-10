@@ -1,0 +1,15 @@
+(cl:defpackage messages-srv
+  (:use )
+  (:export
+   "ADDTWOINTS"
+   "<ADDTWOINTS-REQUEST>"
+   "ADDTWOINTS-REQUEST"
+   "<ADDTWOINTS-RESPONSE>"
+   "ADDTWOINTS-RESPONSE"
+   "PAN_TILT"
+   "<PAN_TILT-REQUEST>"
+   "PAN_TILT-REQUEST"
+   "<PAN_TILT-RESPONSE>"
+   "PAN_TILT-RESPONSE"
+  ))
+

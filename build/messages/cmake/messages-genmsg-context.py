@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/champion/catkin_ws/src/messages/msg/Num.msg;/home/champion/catkin_ws/src/messages/msg/Camino.msg;/home/champion/catkin_ws/src/messages/msg/Punto.msg;/home/champion/catkin_ws/src/messages/msg/Pan_tilt.msg"
-services_str = ""
+messages_str = "/home/champion/catkin_ws/src/messages/msg/Camino.msg;/home/champion/catkin_ws/src/messages/msg/Punto.msg;/home/champion/catkin_ws/src/messages/msg/Pan_tilt_mess.msg"
+services_str = "/home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv;/home/champion/catkin_ws/src/messages/srv/AddTwoInts.srv"
 pkg_name = "messages"
 dependencies_str = "std_msgs"
 langs = "gencpp;genlisp;genpy"

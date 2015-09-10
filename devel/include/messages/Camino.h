@@ -27,11 +27,11 @@ struct Camino_
 
   Camino_()
     : header()
-    , punto()  {
+    , puntos()  {
     }
   Camino_(const ContainerAllocator& _alloc)
     : header(_alloc)
-    , punto(_alloc)  {
+    , puntos(_alloc)  {
     }
 
 
@@ -39,8 +39,8 @@ struct Camino_
    typedef  ::std_msgs::Header_<ContainerAllocator>  _header_type;
   _header_type header;
 
-   typedef std::vector< ::messages::Punto_<ContainerAllocator> , typename ContainerAllocator::template rebind< ::messages::Punto_<ContainerAllocator> >::other >  _punto_type;
-  _punto_type punto;
+   typedef std::vector< ::messages::Punto_<ContainerAllocator> , typename ContainerAllocator::template rebind< ::messages::Punto_<ContainerAllocator> >::other >  _puntos_type;
+  _puntos_type puntos;
 
 
 
@@ -119,12 +119,12 @@ struct MD5Sum< ::messages::Camino_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "dedcd4aa3b4a3292b6e1222e047ea70f";
+    return "a18639cc1614ee5059ad5ac8d18d4085";
   }
 
   static const char* value(const ::messages::Camino_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xdedcd4aa3b4a3292ULL;
-  static const uint64_t static_value2 = 0xb6e1222e047ea70fULL;
+  static const uint64_t static_value1 = 0xa18639cc1614ee50ULL;
+  static const uint64_t static_value2 = 0x59ad5ac8d18d4085ULL;
 };
 
 template<class ContainerAllocator>
@@ -144,7 +144,8 @@ struct Definition< ::messages::Camino_<ContainerAllocator> >
   static const char* value()
   {
     return "Header header\n\
-Punto[] punto\n\
+Punto[] puntos\n\
+\n\
 ================================================================================\n\
 MSG: std_msgs/Header\n\
 # Standard metadata for higher-level stamped data types.\n\
@@ -166,11 +167,11 @@ string frame_id\n\
 ================================================================================\n\
 MSG: messages/Punto\n\
 Header header\n\
-int32 x\n\
-int32 y\n\
-int32 angulo_pan\n\
-int32 angulo_tilt\n\
-time tiempo\n\
+float64 x\n\
+float64 y\n\
+float64 angulo_pan\n\
+float64 angulo_tilt\n\
+float64 tiempo\n\
 ";
   }
 
@@ -190,7 +191,7 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.header);
-      stream.next(m.punto);
+      stream.next(m.puntos);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER;
@@ -212,13 +213,13 @@ struct Printer< ::messages::Camino_<ContainerAllocator> >
     s << indent << "header: ";
     s << std::endl;
     Printer< ::std_msgs::Header_<ContainerAllocator> >::stream(s, indent + "  ", v.header);
-    s << indent << "punto[]" << std::endl;
-    for (size_t i = 0; i < v.punto.size(); ++i)
+    s << indent << "puntos[]" << std::endl;
+    for (size_t i = 0; i < v.puntos.size(); ++i)
     {
-      s << indent << "  punto[" << i << "]: ";
+      s << indent << "  puntos[" << i << "]: ";
       s << std::endl;
       s << indent;
-      Printer< ::messages::Punto_<ContainerAllocator> >::stream(s, indent + "    ", v.punto[i]);
+      Printer< ::messages::Punto_<ContainerAllocator> >::stream(s, indent + "    ", v.puntos[i]);
     }
   }
 };

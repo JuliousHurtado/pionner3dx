@@ -13,17 +13,21 @@ def talker():
     punto = Punto()
     punto.x = 1
     punto.y = 4
-    punto.angulo = 7
+    punto.angulo_pan = 7
+    punto.angulo_tilt = 7
     punto.tiempo = 1
-    numero.punto.append(punto)
-    punto.x = 1
-    punto.y = 4
-    punto.angulo = 7
+    numero.puntos.append(punto)
+
+    punto = Punto()
+    punto.x = 4
+    punto.y = 8
+    punto.angulo_pan = 9
+    punto.angulo_tilt = 3
     punto.tiempo = 1
-    numero.punto.append(punto)
+    numero.puntos.append(punto)
     rospy.loginfo(numero)
     pub.publish(numero)
-    #rate.sleep()
+    rate.sleep()
 
 if __name__ == '__main__':
     try:

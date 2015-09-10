@@ -3,10 +3,8 @@
   (:export
    "<CAMINO>"
    "CAMINO"
-   "<PAN_TILT>"
-   "PAN_TILT"
-   "<NUM>"
-   "NUM"
+   "<PAN_TILT_MESS>"
+   "PAN_TILT_MESS"
    "<PUNTO>"
    "PUNTO"
   ))

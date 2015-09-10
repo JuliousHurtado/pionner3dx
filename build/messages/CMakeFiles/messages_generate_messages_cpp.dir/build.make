@@ -45,26 +45,27 @@ CMAKE_BINARY_DIR = /home/champion/catkin_ws/build
 # Include the progress variables for this target.
 include messages/CMakeFiles/messages_generate_messages_cpp.dir/progress.make
 
+messages/CMakeFiles/messages_generate_messages_cpp: /home/champion/catkin_ws/devel/include/messages/Pan_tilt_mess.h
 messages/CMakeFiles/messages_generate_messages_cpp: /home/champion/catkin_ws/devel/include/messages/Punto.h
-messages/CMakeFiles/messages_generate_messages_cpp: /home/champion/catkin_ws/devel/include/messages/Pan_tilt.h
 messages/CMakeFiles/messages_generate_messages_cpp: /home/champion/catkin_ws/devel/include/messages/Camino.h
-messages/CMakeFiles/messages_generate_messages_cpp: /home/champion/catkin_ws/devel/include/messages/Num.h
+messages/CMakeFiles/messages_generate_messages_cpp: /home/champion/catkin_ws/devel/include/messages/AddTwoInts.h
+messages/CMakeFiles/messages_generate_messages_cpp: /home/champion/catkin_ws/devel/include/messages/Pan_tilt.h
+
+/home/champion/catkin_ws/devel/include/messages/Pan_tilt_mess.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/home/champion/catkin_ws/devel/include/messages/Pan_tilt_mess.h: /home/champion/catkin_ws/src/messages/msg/Pan_tilt_mess.msg
+/home/champion/catkin_ws/devel/include/messages/Pan_tilt_mess.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
+/home/champion/catkin_ws/devel/include/messages/Pan_tilt_mess.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from messages/Pan_tilt_mess.msg"
+	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/champion/catkin_ws/src/messages/msg/Pan_tilt_mess.msg -Imessages:/home/champion/catkin_ws/src/messages/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p messages -o /home/champion/catkin_ws/devel/include/messages -e /opt/ros/indigo/share/gencpp/cmake/..
 
 /home/champion/catkin_ws/devel/include/messages/Punto.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
 /home/champion/catkin_ws/devel/include/messages/Punto.h: /home/champion/catkin_ws/src/messages/msg/Punto.msg
 /home/champion/catkin_ws/devel/include/messages/Punto.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
 /home/champion/catkin_ws/devel/include/messages/Punto.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from messages/Punto.msg"
 	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/champion/catkin_ws/src/messages/msg/Punto.msg -Imessages:/home/champion/catkin_ws/src/messages/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p messages -o /home/champion/catkin_ws/devel/include/messages -e /opt/ros/indigo/share/gencpp/cmake/..
-
-/home/champion/catkin_ws/devel/include/messages/Pan_tilt.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
-/home/champion/catkin_ws/devel/include/messages/Pan_tilt.h: /home/champion/catkin_ws/src/messages/msg/Pan_tilt.msg
-/home/champion/catkin_ws/devel/include/messages/Pan_tilt.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
-/home/champion/catkin_ws/devel/include/messages/Pan_tilt.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from messages/Pan_tilt.msg"
-	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/champion/catkin_ws/src/messages/msg/Pan_tilt.msg -Imessages:/home/champion/catkin_ws/src/messages/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p messages -o /home/champion/catkin_ws/devel/include/messages -e /opt/ros/indigo/share/gencpp/cmake/..
 
 /home/champion/catkin_ws/devel/include/messages/Camino.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
 /home/champion/catkin_ws/devel/include/messages/Camino.h: /home/champion/catkin_ws/src/messages/msg/Camino.msg
@@ -75,19 +76,28 @@ messages/CMakeFiles/messages_generate_messages_cpp: /home/champion/catkin_ws/dev
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from messages/Camino.msg"
 	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/champion/catkin_ws/src/messages/msg/Camino.msg -Imessages:/home/champion/catkin_ws/src/messages/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p messages -o /home/champion/catkin_ws/devel/include/messages -e /opt/ros/indigo/share/gencpp/cmake/..
 
-/home/champion/catkin_ws/devel/include/messages/Num.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
-/home/champion/catkin_ws/devel/include/messages/Num.h: /home/champion/catkin_ws/src/messages/msg/Num.msg
-/home/champion/catkin_ws/devel/include/messages/Num.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
-/home/champion/catkin_ws/devel/include/messages/Num.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+/home/champion/catkin_ws/devel/include/messages/AddTwoInts.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/home/champion/catkin_ws/devel/include/messages/AddTwoInts.h: /home/champion/catkin_ws/src/messages/srv/AddTwoInts.srv
+/home/champion/catkin_ws/devel/include/messages/AddTwoInts.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+/home/champion/catkin_ws/devel/include/messages/AddTwoInts.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from messages/Num.msg"
-	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/champion/catkin_ws/src/messages/msg/Num.msg -Imessages:/home/champion/catkin_ws/src/messages/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p messages -o /home/champion/catkin_ws/devel/include/messages -e /opt/ros/indigo/share/gencpp/cmake/..
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from messages/AddTwoInts.srv"
+	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/champion/catkin_ws/src/messages/srv/AddTwoInts.srv -Imessages:/home/champion/catkin_ws/src/messages/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p messages -o /home/champion/catkin_ws/devel/include/messages -e /opt/ros/indigo/share/gencpp/cmake/..
+
+/home/champion/catkin_ws/devel/include/messages/Pan_tilt.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/home/champion/catkin_ws/devel/include/messages/Pan_tilt.h: /home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv
+/home/champion/catkin_ws/devel/include/messages/Pan_tilt.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+/home/champion/catkin_ws/devel/include/messages/Pan_tilt.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from messages/Pan_tilt.srv"
+	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv -Imessages:/home/champion/catkin_ws/src/messages/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p messages -o /home/champion/catkin_ws/devel/include/messages -e /opt/ros/indigo/share/gencpp/cmake/..
 
 messages_generate_messages_cpp: messages/CMakeFiles/messages_generate_messages_cpp
+messages_generate_messages_cpp: /home/champion/catkin_ws/devel/include/messages/Pan_tilt_mess.h
 messages_generate_messages_cpp: /home/champion/catkin_ws/devel/include/messages/Punto.h
-messages_generate_messages_cpp: /home/champion/catkin_ws/devel/include/messages/Pan_tilt.h
 messages_generate_messages_cpp: /home/champion/catkin_ws/devel/include/messages/Camino.h
-messages_generate_messages_cpp: /home/champion/catkin_ws/devel/include/messages/Num.h
+messages_generate_messages_cpp: /home/champion/catkin_ws/devel/include/messages/AddTwoInts.h
+messages_generate_messages_cpp: /home/champion/catkin_ws/devel/include/messages/Pan_tilt.h
 messages_generate_messages_cpp: messages/CMakeFiles/messages_generate_messages_cpp.dir/build.make
 .PHONY : messages_generate_messages_cpp
 

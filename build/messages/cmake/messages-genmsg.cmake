@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "messages: 4 messages, 0 services")
+message(STATUS "messages: 3 messages, 2 services")
 
 set(MSG_I_FLAGS "-Imessages:/home/champion/catkin_ws/src/messages/msg;-Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg")
 
@@ -15,19 +15,24 @@ add_custom_target(messages_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Num.msg" NAME_WE)
+get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Pan_tilt_mess.msg" NAME_WE)
 add_custom_target(_messages_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "messages" "/home/champion/catkin_ws/src/messages/msg/Num.msg" "std_msgs/Header"
-)
-
-get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Pan_tilt.msg" NAME_WE)
-add_custom_target(_messages_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "messages" "/home/champion/catkin_ws/src/messages/msg/Pan_tilt.msg" "std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "messages" "/home/champion/catkin_ws/src/messages/msg/Pan_tilt_mess.msg" "std_msgs/Header"
 )
 
 get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Punto.msg" NAME_WE)
 add_custom_target(_messages_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "messages" "/home/champion/catkin_ws/src/messages/msg/Punto.msg" "std_msgs/Header"
+)
+
+get_filename_component(_filename "/home/champion/catkin_ws/src/messages/srv/AddTwoInts.srv" NAME_WE)
+add_custom_target(_messages_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "messages" "/home/champion/catkin_ws/src/messages/srv/AddTwoInts.srv" ""
+)
+
+get_filename_component(_filename "/home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv" NAME_WE)
+add_custom_target(_messages_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "messages" "/home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv" ""
 )
 
 get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Camino.msg" NAME_WE)
@@ -42,13 +47,13 @@ add_custom_target(_messages_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(messages
-  "/home/champion/catkin_ws/src/messages/msg/Punto.msg"
+  "/home/champion/catkin_ws/src/messages/msg/Pan_tilt_mess.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/messages
 )
 _generate_msg_cpp(messages
-  "/home/champion/catkin_ws/src/messages/msg/Pan_tilt.msg"
+  "/home/champion/catkin_ws/src/messages/msg/Punto.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/messages
@@ -59,14 +64,20 @@ _generate_msg_cpp(messages
   "/home/champion/catkin_ws/src/messages/msg/Punto.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/messages
 )
-_generate_msg_cpp(messages
-  "/home/champion/catkin_ws/src/messages/msg/Num.msg"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/messages
-)
 
 ### Generating Services
+_generate_srv_cpp(messages
+  "/home/champion/catkin_ws/src/messages/srv/AddTwoInts.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/messages
+)
+_generate_srv_cpp(messages
+  "/home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/messages
+)
 
 ### Generating Module File
 _generate_module_cpp(messages
@@ -80,11 +91,13 @@ add_custom_target(messages_generate_messages_cpp
 add_dependencies(messages_generate_messages messages_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Num.msg" NAME_WE)
-add_dependencies(messages_generate_messages_cpp _messages_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Pan_tilt.msg" NAME_WE)
+get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Pan_tilt_mess.msg" NAME_WE)
 add_dependencies(messages_generate_messages_cpp _messages_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Punto.msg" NAME_WE)
+add_dependencies(messages_generate_messages_cpp _messages_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/champion/catkin_ws/src/messages/srv/AddTwoInts.srv" NAME_WE)
+add_dependencies(messages_generate_messages_cpp _messages_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv" NAME_WE)
 add_dependencies(messages_generate_messages_cpp _messages_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Camino.msg" NAME_WE)
 add_dependencies(messages_generate_messages_cpp _messages_generate_messages_check_deps_${_filename})
@@ -99,13 +112,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS messages_generate_messages_cpp)
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(messages
-  "/home/champion/catkin_ws/src/messages/msg/Punto.msg"
+  "/home/champion/catkin_ws/src/messages/msg/Pan_tilt_mess.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/messages
 )
 _generate_msg_lisp(messages
-  "/home/champion/catkin_ws/src/messages/msg/Pan_tilt.msg"
+  "/home/champion/catkin_ws/src/messages/msg/Punto.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/messages
@@ -116,14 +129,20 @@ _generate_msg_lisp(messages
   "/home/champion/catkin_ws/src/messages/msg/Punto.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/messages
 )
-_generate_msg_lisp(messages
-  "/home/champion/catkin_ws/src/messages/msg/Num.msg"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/messages
-)
 
 ### Generating Services
+_generate_srv_lisp(messages
+  "/home/champion/catkin_ws/src/messages/srv/AddTwoInts.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/messages
+)
+_generate_srv_lisp(messages
+  "/home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/messages
+)
 
 ### Generating Module File
 _generate_module_lisp(messages
@@ -137,11 +156,13 @@ add_custom_target(messages_generate_messages_lisp
 add_dependencies(messages_generate_messages messages_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Num.msg" NAME_WE)
-add_dependencies(messages_generate_messages_lisp _messages_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Pan_tilt.msg" NAME_WE)
+get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Pan_tilt_mess.msg" NAME_WE)
 add_dependencies(messages_generate_messages_lisp _messages_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Punto.msg" NAME_WE)
+add_dependencies(messages_generate_messages_lisp _messages_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/champion/catkin_ws/src/messages/srv/AddTwoInts.srv" NAME_WE)
+add_dependencies(messages_generate_messages_lisp _messages_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv" NAME_WE)
 add_dependencies(messages_generate_messages_lisp _messages_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Camino.msg" NAME_WE)
 add_dependencies(messages_generate_messages_lisp _messages_generate_messages_check_deps_${_filename})
@@ -156,13 +177,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS messages_generate_messages_lisp)
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(messages
-  "/home/champion/catkin_ws/src/messages/msg/Punto.msg"
+  "/home/champion/catkin_ws/src/messages/msg/Pan_tilt_mess.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/messages
 )
 _generate_msg_py(messages
-  "/home/champion/catkin_ws/src/messages/msg/Pan_tilt.msg"
+  "/home/champion/catkin_ws/src/messages/msg/Punto.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/messages
@@ -173,14 +194,20 @@ _generate_msg_py(messages
   "/home/champion/catkin_ws/src/messages/msg/Punto.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/messages
 )
-_generate_msg_py(messages
-  "/home/champion/catkin_ws/src/messages/msg/Num.msg"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/messages
-)
 
 ### Generating Services
+_generate_srv_py(messages
+  "/home/champion/catkin_ws/src/messages/srv/AddTwoInts.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/messages
+)
+_generate_srv_py(messages
+  "/home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/messages
+)
 
 ### Generating Module File
 _generate_module_py(messages
@@ -194,11 +221,13 @@ add_custom_target(messages_generate_messages_py
 add_dependencies(messages_generate_messages messages_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Num.msg" NAME_WE)
-add_dependencies(messages_generate_messages_py _messages_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Pan_tilt.msg" NAME_WE)
+get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Pan_tilt_mess.msg" NAME_WE)
 add_dependencies(messages_generate_messages_py _messages_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Punto.msg" NAME_WE)
+add_dependencies(messages_generate_messages_py _messages_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/champion/catkin_ws/src/messages/srv/AddTwoInts.srv" NAME_WE)
+add_dependencies(messages_generate_messages_py _messages_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv" NAME_WE)
 add_dependencies(messages_generate_messages_py _messages_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/champion/catkin_ws/src/messages/msg/Camino.msg" NAME_WE)
 add_dependencies(messages_generate_messages_py _messages_generate_messages_check_deps_${_filename})

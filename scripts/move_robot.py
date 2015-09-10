@@ -29,8 +29,10 @@ from actionlib_msgs.msg import *
 from geometry_msgs.msg import Pose, PoseWithCovarianceStamped, Point, Quaternion, Twist
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from messages.msg import Camino,Punto,Pan_tilt
+from messages.srv import *
 from random import sample
 from math import pow, sqrt, atan, degrees
+import tf
 from Quaternion import Quat
 
 from scipy.interpolate import UnivariateSpline
@@ -41,7 +43,11 @@ from threading import Thread
 import time
 
 anguloRobot = 0.0 #se Actualiza cada vez que se mueve
-point_between_point = 5
+point_between_point = 1
+
+ang_pan = 0.0
+ang_tilt = 0.0
+ang_mapa = 0.0
 
 class NavTest():
     def __init__(self):
@@ -73,7 +79,8 @@ class NavTest():
 
         self.__sub_camino = rospy.Subscriber("chatter", Camino, self.chatter_handler)
 
-        self.__sub_pan_tilt = rospy.Publisher('pan_titl', Pan_tilt, queue_size=10)
+        #self.__sub_pan_tilt = rospy.Publisher('pan_titl', Pan_tilt, queue_size=10)
+        self.__pose_sub = rospy.Subscriber('/amcl_pose', PoseWithCovarianceStamped, self.__pose_handler)
         #rospy.init_node('talker', anonymous=True)
         
         # Subscribe to the move_base action server
@@ -115,6 +122,8 @@ class NavTest():
             # Get the next location in the current sequence
             location,ang_pan_tilt,tiempo_por_punto = self.puntosGuardian(last_location)
             
+            print location
+
             # Store the last location for distance calculations
             last_location = location
         
@@ -124,10 +133,8 @@ class NavTest():
             self.goal.target_pose.header.frame_id = 'map'
             self.goal.target_pose.header.stamp = rospy.Time.now()
            
-            #threads = list()
-            #t = Thread(target=self.panTilt_Handle(ang_pan_tilt[0],ang_pan_tilt[1])) #ang_pan_tilt[0],ang_pan_tilt[1]
-            #threads.append(t)
-            #t.start()
+            t = Thread(target=self.panTilt_Handle(ang_pan_tilt[0],ang_pan_tilt[1])) #ang_pan_tilt[0],ang_pan_tilt[1]
+            t.start()
 
             # Start the robot toward the next location
             self.move_base.send_goal(self.goal)
@@ -136,10 +143,11 @@ class NavTest():
             # Quizas no sea necesario esperar, si no que un sleep y ver si se logro y mandar altiro el otro
             
             print "Tiempo de dormir", tiempo_por_punto
-            time.sleep(tiempo_por_punto)
+            finished_within_time = self.move_base.wait_for_result(rospy.Duration(tiempo_por_punto+10))
+            #time.sleep(tiempo_por_punto)
 
             self.move_base.cancel_goal()
-            rospy.sleep(2)
+            rospy.sleep(2) 
             #finished_within_time = self.move_base.wait_for_result(rospy.Duration(tiempo_por_punto)) 
             
             # Check for success or failure
@@ -169,6 +177,9 @@ class NavTest():
         rospy.sleep(1)
 
     def panTilt_Handle(self,pan,tilt):
+        global ang_pan
+        global ang_tilt
+
         pantilt = Pantilt('/dev/ttyUSB2',9600) #Change port and baudrate
         pantilt.open()
 
@@ -180,15 +191,43 @@ class NavTest():
         punto.pan = pan
         punto.tilt = tilt
 
-        self.__sub_pan_tilt(punto)
+        ang_pan = pan
+        ang_tilt = tilt
+
+        #self.__sub_pan_tilt(punto)
+        #self.pub_panTilt(pan,tilt)
 
         pantilt.close()
+
+    def pub_panTilt(self,pan,tilt):
+        br = tf.TransformBroadcaster()
+
+        br.sendTransform((0.0, 0.0, 1.0),
+                             tf.transformations.quaternion_from_euler(0, tilt, pan),
+                             rospy.Time.now(),
+                             "pan/tilt",
+                             "base_link")
+
+    def __pose_handler(self,pose):
+        global ang_mapa
+        self.pose_robot = pose.pose
+
+        x = self.pose_robot.pose.orientation.x
+        y = self.pose_robot.pose.orientation.y
+        z = self.pose_robot.pose.orientation.z
+        w = self.pose_robot.pose.orientation.w
+
+        q = Quat((x,y,z,w))
+
+        ang_mapa = q.ra
+
+        print q.ra
 
     def chatter_handler(self,data):
         x_total = []
         y_total = []
-        self.pan_total =[]
-        self.tilt_total = []
+        ang_pan_total =[]
+        ang_tilt_total = []
         tiempo_total = []
 
         x = []
@@ -197,8 +236,8 @@ class NavTest():
         ang_tilt = []
         tiempo = []
 
-        for point in data.punto:
-            if abs(point.y) < abs(y[-1]):
+        for point in data.puntos:
+            if len(y) > 0 and abs(point.y) < abs(y[-1]):
                 x_total.append(x)
                 y_total.append(y)
                 ang_pan_total.append(ang_pan)
@@ -222,6 +261,8 @@ class NavTest():
         ang_pan_total.append(ang_pan)
         ang_tilt_total.append(ang_tilt)
         tiempo_total.append(tiempo)
+
+        self.move_base.cancel_goal()
 
         puntos = []
         for i in range(len(x_total)):
@@ -251,6 +292,7 @@ class NavTest():
         if len(puntos) == 0:
             self.puntos_a_seguir = []
             self.pan_tilt = []
+            self.lista_tiempos = []
         
         ang_pos_final = 0
         q = None
@@ -295,9 +337,32 @@ def trunc(f, n):
     slen = len('%.*f' % (n, f))
     return float(str(f)[:slen])
 
+def handle_add_two_ints(seq):
+    #print "Returning [%s + %s = %s]"%(req.a, req.b, (req.a + req.b))
+    global ang_pan
+    global ang_tilt
+    global ang_mapa
+    pan = ang_pan + ang_mapa
+
+    if pan > 360:
+        pan = pan - 360
+
+    #tilt = 20
+    return pan,ang_tilt
+
+def add_two_ints_server():
+    #rospy.init_node('add_two_ints_server')
+    s = rospy.Service('pan_tilt_srv', Pan_tilt, handle_add_two_ints)
+    print "Ready to add two ints."
+    rospy.spin()
+
 if __name__ == '__main__':
     try:
-        NavTest()
+        #NavTest()
+        t1 = Thread(target=NavTest()) #ang_pan_tilt[0],ang_pan_tilt[1]
+        t1.start()
+        #t2.start()
+        add_two_ints_server()
         rospy.spin()
     except rospy.ROSInterruptException:
         rospy.loginfo("AMCL navigation test finished.")

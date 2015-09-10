@@ -5,15 +5,15 @@ import genpy
 import struct
 
 import messages.msg
-import genpy
 import std_msgs.msg
 
 class Camino(genpy.Message):
-  _md5sum = "dedcd4aa3b4a3292b6e1222e047ea70f"
+  _md5sum = "a18639cc1614ee5059ad5ac8d18d4085"
   _type = "messages/Camino"
   _has_header = True #flag to mark the presence of a Header object
   _full_text = """Header header
-Punto[] punto
+Punto[] puntos
+
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -35,13 +35,14 @@ string frame_id
 ================================================================================
 MSG: messages/Punto
 Header header
-int32 x
-int32 y
-int32 angulo_pan
-int32 angulo_tilt
-time tiempo
+float64 x
+float64 y
+float64 angulo_pan
+float64 angulo_tilt
+float64 tiempo
+
 """
-  __slots__ = ['header','punto']
+  __slots__ = ['header','puntos']
   _slot_types = ['std_msgs/Header','messages/Punto[]']
 
   def __init__(self, *args, **kwds):
@@ -52,7 +53,7 @@ time tiempo
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,punto
+       header,puntos
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -63,11 +64,11 @@ time tiempo
       #message fields cannot be None, assign default values for those that are
       if self.header is None:
         self.header = std_msgs.msg.Header()
-      if self.punto is None:
-        self.punto = []
+      if self.puntos is None:
+        self.puntos = []
     else:
       self.header = std_msgs.msg.Header()
-      self.punto = []
+      self.puntos = []
 
   def _get_types(self):
     """
@@ -92,9 +93,9 @@ time tiempo
         buff.write(struct.pack('<I%sB'%length, length, *_x))
       else:
         buff.write(struct.pack('<I%ss'%length, length, _x))
-      length = len(self.punto)
+      length = len(self.puntos)
       buff.write(_struct_I.pack(length))
-      for val1 in self.punto:
+      for val1 in self.puntos:
         _v1 = val1.header
         buff.write(_struct_I.pack(_v1.seq))
         _v2 = _v1.stamp
@@ -110,10 +111,7 @@ time tiempo
         else:
           buff.write(struct.pack('<I%ss'%length, length, _x))
         _x = val1
-        buff.write(_struct_4i.pack(_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt))
-        _v3 = val1.tiempo
-        _x = _v3
-        buff.write(_struct_2I.pack(_x.secs, _x.nsecs))
+        buff.write(_struct_5d.pack(_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt, _x.tiempo))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
 
@@ -125,8 +123,8 @@ time tiempo
     try:
       if self.header is None:
         self.header = std_msgs.msg.Header()
-      if self.punto is None:
-        self.punto = None
+      if self.puntos is None:
+        self.puntos = None
       end = 0
       _x = self
       start = end
@@ -144,15 +142,15 @@ time tiempo
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
-      self.punto = []
+      self.puntos = []
       for i in range(0, length):
         val1 = messages.msg.Punto()
-        _v4 = val1.header
+        _v3 = val1.header
         start = end
         end += 4
-        (_v4.seq,) = _struct_I.unpack(str[start:end])
-        _v5 = _v4.stamp
-        _x = _v5
+        (_v3.seq,) = _struct_I.unpack(str[start:end])
+        _v4 = _v3.stamp
+        _x = _v4
         start = end
         end += 8
         (_x.secs, _x.nsecs,) = _struct_2I.unpack(str[start:end])
@@ -162,19 +160,14 @@ time tiempo
         start = end
         end += length
         if python3:
-          _v4.frame_id = str[start:end].decode('utf-8')
+          _v3.frame_id = str[start:end].decode('utf-8')
         else:
-          _v4.frame_id = str[start:end]
+          _v3.frame_id = str[start:end]
         _x = val1
         start = end
-        end += 16
-        (_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt,) = _struct_4i.unpack(str[start:end])
-        _v6 = val1.tiempo
-        _x = _v6
-        start = end
-        end += 8
-        (_x.secs, _x.nsecs,) = _struct_2I.unpack(str[start:end])
-        self.punto.append(val1)
+        end += 40
+        (_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt, _x.tiempo,) = _struct_5d.unpack(str[start:end])
+        self.puntos.append(val1)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -198,15 +191,15 @@ time tiempo
         buff.write(struct.pack('<I%sB'%length, length, *_x))
       else:
         buff.write(struct.pack('<I%ss'%length, length, _x))
-      length = len(self.punto)
+      length = len(self.puntos)
       buff.write(_struct_I.pack(length))
-      for val1 in self.punto:
-        _v7 = val1.header
-        buff.write(_struct_I.pack(_v7.seq))
-        _v8 = _v7.stamp
-        _x = _v8
+      for val1 in self.puntos:
+        _v5 = val1.header
+        buff.write(_struct_I.pack(_v5.seq))
+        _v6 = _v5.stamp
+        _x = _v6
         buff.write(_struct_2I.pack(_x.secs, _x.nsecs))
-        _x = _v7.frame_id
+        _x = _v5.frame_id
         length = len(_x)
         if python3 or type(_x) == unicode:
           _x = _x.encode('utf-8')
@@ -216,10 +209,7 @@ time tiempo
         else:
           buff.write(struct.pack('<I%ss'%length, length, _x))
         _x = val1
-        buff.write(_struct_4i.pack(_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt))
-        _v9 = val1.tiempo
-        _x = _v9
-        buff.write(_struct_2I.pack(_x.secs, _x.nsecs))
+        buff.write(_struct_5d.pack(_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt, _x.tiempo))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
 
@@ -232,8 +222,8 @@ time tiempo
     try:
       if self.header is None:
         self.header = std_msgs.msg.Header()
-      if self.punto is None:
-        self.punto = None
+      if self.puntos is None:
+        self.puntos = None
       end = 0
       _x = self
       start = end
@@ -251,15 +241,15 @@ time tiempo
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
-      self.punto = []
+      self.puntos = []
       for i in range(0, length):
         val1 = messages.msg.Punto()
-        _v10 = val1.header
+        _v7 = val1.header
         start = end
         end += 4
-        (_v10.seq,) = _struct_I.unpack(str[start:end])
-        _v11 = _v10.stamp
-        _x = _v11
+        (_v7.seq,) = _struct_I.unpack(str[start:end])
+        _v8 = _v7.stamp
+        _x = _v8
         start = end
         end += 8
         (_x.secs, _x.nsecs,) = _struct_2I.unpack(str[start:end])
@@ -269,24 +259,19 @@ time tiempo
         start = end
         end += length
         if python3:
-          _v10.frame_id = str[start:end].decode('utf-8')
+          _v7.frame_id = str[start:end].decode('utf-8')
         else:
-          _v10.frame_id = str[start:end]
+          _v7.frame_id = str[start:end]
         _x = val1
         start = end
-        end += 16
-        (_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt,) = _struct_4i.unpack(str[start:end])
-        _v12 = val1.tiempo
-        _x = _v12
-        start = end
-        end += 8
-        (_x.secs, _x.nsecs,) = _struct_2I.unpack(str[start:end])
-        self.punto.append(val1)
+        end += 40
+        (_x.x, _x.y, _x.angulo_pan, _x.angulo_tilt, _x.tiempo,) = _struct_5d.unpack(str[start:end])
+        self.puntos.append(val1)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
+_struct_5d = struct.Struct("<5d")
 _struct_3I = struct.Struct("<3I")
 _struct_2I = struct.Struct("<2I")
-_struct_4i = struct.Struct("<4i")

@@ -1,2 +1,2 @@
 Header header
-Punto[] punto
+Punto[] puntos

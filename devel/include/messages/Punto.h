@@ -26,19 +26,19 @@ struct Punto_
 
   Punto_()
     : header()
-    , x(0)
-    , y(0)
-    , angulo_pan(0)
-    , angulo_tilt(0)
-    , tiempo()  {
+    , x(0.0)
+    , y(0.0)
+    , angulo_pan(0.0)
+    , angulo_tilt(0.0)
+    , tiempo(0.0)  {
     }
   Punto_(const ContainerAllocator& _alloc)
     : header(_alloc)
-    , x(0)
-    , y(0)
-    , angulo_pan(0)
-    , angulo_tilt(0)
-    , tiempo()  {
+    , x(0.0)
+    , y(0.0)
+    , angulo_pan(0.0)
+    , angulo_tilt(0.0)
+    , tiempo(0.0)  {
     }
 
 
@@ -46,19 +46,19 @@ struct Punto_
    typedef  ::std_msgs::Header_<ContainerAllocator>  _header_type;
   _header_type header;
 
-   typedef int32_t _x_type;
+   typedef double _x_type;
   _x_type x;
 
-   typedef int32_t _y_type;
+   typedef double _y_type;
   _y_type y;
 
-   typedef int32_t _angulo_pan_type;
+   typedef double _angulo_pan_type;
   _angulo_pan_type angulo_pan;
 
-   typedef int32_t _angulo_tilt_type;
+   typedef double _angulo_tilt_type;
   _angulo_tilt_type angulo_tilt;
 
-   typedef ros::Time _tiempo_type;
+   typedef double _tiempo_type;
   _tiempo_type tiempo;
 
 
@@ -138,12 +138,12 @@ struct MD5Sum< ::messages::Punto_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "feca8e1b82456800d729e7700a801e9b";
+    return "3e2dde8e5483b601bd85a0bcfe1e9b50";
   }
 
   static const char* value(const ::messages::Punto_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xfeca8e1b82456800ULL;
-  static const uint64_t static_value2 = 0xd729e7700a801e9bULL;
+  static const uint64_t static_value1 = 0x3e2dde8e5483b601ULL;
+  static const uint64_t static_value2 = 0xbd85a0bcfe1e9b50ULL;
 };
 
 template<class ContainerAllocator>
@@ -163,11 +163,12 @@ struct Definition< ::messages::Punto_<ContainerAllocator> >
   static const char* value()
   {
     return "Header header\n\
-int32 x\n\
-int32 y\n\
-int32 angulo_pan\n\
-int32 angulo_tilt\n\
-time tiempo\n\
+float64 x\n\
+float64 y\n\
+float64 angulo_pan\n\
+float64 angulo_tilt\n\
+float64 tiempo\n\
+\n\
 ================================================================================\n\
 MSG: std_msgs/Header\n\
 # Standard metadata for higher-level stamped data types.\n\
@@ -231,15 +232,15 @@ struct Printer< ::messages::Punto_<ContainerAllocator> >
     s << std::endl;
     Printer< ::std_msgs::Header_<ContainerAllocator> >::stream(s, indent + "  ", v.header);
     s << indent << "x: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.x);
+    Printer<double>::stream(s, indent + "  ", v.x);
     s << indent << "y: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.y);
+    Printer<double>::stream(s, indent + "  ", v.y);
     s << indent << "angulo_pan: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.angulo_pan);
+    Printer<double>::stream(s, indent + "  ", v.angulo_pan);
     s << indent << "angulo_tilt: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.angulo_tilt);
+    Printer<double>::stream(s, indent + "  ", v.angulo_tilt);
     s << indent << "tiempo: ";
-    Printer<ros::Time>::stream(s, indent + "  ", v.tiempo);
+    Printer<double>::stream(s, indent + "  ", v.tiempo);
   }
 };
 

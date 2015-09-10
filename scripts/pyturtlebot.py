@@ -36,7 +36,7 @@ def get_robot():
 
 class Turtlebot(object):
     max_linear = 0.5 # 1.2
-    max_angular = 0.3 # 3.0
+    max_angular = 0.6 # 3.0
 
     def __init__(self):
         rospy.init_node('pioneer', anonymous=True)
@@ -64,6 +64,7 @@ class Turtlebot(object):
         self.grados_sep = 10 # grados de separacion
         self.max_seg = 180/self.grados_sep
         self.mean_range = [0]*self.max_seg
+        self.laser_range = None
 
         self.obj_center_x = None
         self.obj_center_y = None 
@@ -82,9 +83,11 @@ class Turtlebot(object):
         self.__scan_sub = rospy.Subscriber('/scan', LaserScan, self.__scan_handler)
         #self.__mapa_sub = rospy.Subscriber('/map', OccupancyGrid, self.__mapa_handler)
 
-        self.plan_sus = rospy.Subscriber("move_base/NavfnROS/plan", Path, self.__plan_handler)
+        self.plan_sus = rospy.Subscriber("move_base/TrajectoryPlannerROS/local_plan", Path, self.__plan_handler)
         self.initial_sus = rospy.Subscriber("/initialpose", PoseWithCovarianceStamped, self.__initial_handler)
         self.move_base = actionlib.SimpleActionClient("move_base", MoveBaseAction) 
+
+        self.__set_goal = rospy.Subscriber("move_base_simple/goal", Pose, self.__goal_handler)
         #self.plan = rospy.Subscriber("move_base/TrajectoryPlannerROS/global_plan", Path)
 
         #-----KINECT HANDLERS---#
@@ -369,7 +372,11 @@ class Turtlebot(object):
         self.__have_odom = True
 
     def __plan_handler(self, msg):
-        self.plan_position = []
+        #if msg.poses[0].pose == self.plan[0]:
+        #    return 14
+
+        self.plan = []
+        #print msg.poses[0]
         for point in msg.poses:
             self.plan.append(point.pose)
             #print point.pose.position
@@ -381,6 +388,7 @@ class Turtlebot(object):
         self.current_laser_msg = msg
         lm = self.current_laser_msg
         r = lm.ranges
+        self.laser_range = r
 
         for i in range(self.max_seg):
             self.mean_range[i] = np.mean(r[self.grados_sep*i:self.grados_sep*(i+1)])

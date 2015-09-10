@@ -7,12 +7,12 @@ import struct
 import std_msgs.msg
 
 class Pan_tilt(genpy.Message):
-  _md5sum = "31595efae5e994e135d1ca761663bf39"
+  _md5sum = "919b8e9b18fec5e324500406fde49f2b"
   _type = "messages/Pan_tilt"
   _has_header = True #flag to mark the presence of a Header object
   _full_text = """Header header
-int16 pan
-int16 tilt
+float64 pan
+float64 tilt
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -33,7 +33,7 @@ string frame_id
 
 """
   __slots__ = ['header','pan','tilt']
-  _slot_types = ['std_msgs/Header','int16','int16']
+  _slot_types = ['std_msgs/Header','float64','float64']
 
   def __init__(self, *args, **kwds):
     """
@@ -55,13 +55,13 @@ string frame_id
       if self.header is None:
         self.header = std_msgs.msg.Header()
       if self.pan is None:
-        self.pan = 0
+        self.pan = 0.
       if self.tilt is None:
-        self.tilt = 0
+        self.tilt = 0.
     else:
       self.header = std_msgs.msg.Header()
-      self.pan = 0
-      self.tilt = 0
+      self.pan = 0.
+      self.tilt = 0.
 
   def _get_types(self):
     """
@@ -87,7 +87,7 @@ string frame_id
       else:
         buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_struct_2h.pack(_x.pan, _x.tilt))
+      buff.write(_struct_2d.pack(_x.pan, _x.tilt))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
 
@@ -115,8 +115,8 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 4
-      (_x.pan, _x.tilt,) = _struct_2h.unpack(str[start:end])
+      end += 16
+      (_x.pan, _x.tilt,) = _struct_2d.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -141,7 +141,7 @@ string frame_id
       else:
         buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_struct_2h.pack(_x.pan, _x.tilt))
+      buff.write(_struct_2d.pack(_x.pan, _x.tilt))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
 
@@ -170,12 +170,12 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 4
-      (_x.pan, _x.tilt,) = _struct_2h.unpack(str[start:end])
+      end += 16
+      (_x.pan, _x.tilt,) = _struct_2d.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
+_struct_2d = struct.Struct("<2d")
 _struct_3I = struct.Struct("<3I")
-_struct_2h = struct.Struct("<2h")

@@ -1,6 +1,6 @@
 Header header
-int32 x
-int32 y
-int32 angulo_pan
-int32 angulo_tilt
-time tiempo
+float64 x
+float64 y
+float64 angulo_pan
+float64 angulo_tilt
+float64 tiempo

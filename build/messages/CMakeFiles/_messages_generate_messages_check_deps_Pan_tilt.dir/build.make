@@ -46,7 +46,7 @@ CMAKE_BINARY_DIR = /home/champion/catkin_ws/build
 include messages/CMakeFiles/_messages_generate_messages_check_deps_Pan_tilt.dir/progress.make
 
 messages/CMakeFiles/_messages_generate_messages_check_deps_Pan_tilt:
-	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py messages /home/champion/catkin_ws/src/messages/msg/Pan_tilt.msg std_msgs/Header
+	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py messages /home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv 
 
 _messages_generate_messages_check_deps_Pan_tilt: messages/CMakeFiles/_messages_generate_messages_check_deps_Pan_tilt
 _messages_generate_messages_check_deps_Pan_tilt: messages/CMakeFiles/_messages_generate_messages_check_deps_Pan_tilt.dir/build.make
