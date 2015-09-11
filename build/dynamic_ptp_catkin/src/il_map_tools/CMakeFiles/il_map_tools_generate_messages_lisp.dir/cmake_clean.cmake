@@ -1,5 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/il_map_tools_generate_messages_lisp"
+  "/home/champion/catkin_ws/devel/share/common-lisp/ros/il_map_tools/srv/Pan_tilt.lisp"
   "/home/champion/catkin_ws/devel/share/common-lisp/ros/il_map_tools/srv/srv_occupied.lisp"
 )
 

@@ -42,6 +42,11 @@
     :initarg :robot_orient
     :type cl:float
     :initform 0.0)
+   (pan_orient
+    :reader pan_orient
+    :initarg :pan_orient
+    :type cl:float
+    :initform 0.0)
    (n_type
     :reader n_type
     :initarg :n_type
@@ -96,6 +101,11 @@
 (cl:defmethod robot_orient-val ((m <msg_detection>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader common_code-msg:robot_orient-val is deprecated.  Use common_code-msg:robot_orient instead.")
   (robot_orient m))
+
+(cl:ensure-generic-function 'pan_orient-val :lambda-list '(m))
+(cl:defmethod pan_orient-val ((m <msg_detection>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader common_code-msg:pan_orient-val is deprecated.  Use common_code-msg:pan_orient instead.")
+  (pan_orient m))
 
 (cl:ensure-generic-function 'n_type-val :lambda-list '(m))
 (cl:defmethod n_type-val ((m <msg_detection>))
@@ -157,6 +167,15 @@
     (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream)))
    (cl:slot-value msg 'robot_x_y))
   (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'robot_orient))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 32) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 40) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'pan_orient))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -254,6 +273,16 @@
       (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
     (cl:setf (cl:slot-value msg 'robot_orient) (roslisp-utils:decode-double-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 32) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'pan_orient) (roslisp-utils:decode-double-float-bits bits)))
     (cl:let ((unsigned 0))
       (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
@@ -286,16 +315,16 @@
   "common_code/msg_detection")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<msg_detection>)))
   "Returns md5sum for a message object of type '<msg_detection>"
-  "66d102c3c2c8a4d041610d1708a31562")
+  "e377bdbe3c001f0f670ed6de22af24ee")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'msg_detection)))
   "Returns md5sum for a message object of type 'msg_detection"
-  "66d102c3c2c8a4d041610d1708a31562")
+  "e377bdbe3c001f0f670ed6de22af24ee")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<msg_detection>)))
   "Returns full string definition for message of type '<msg_detection>"
-  (cl:format cl:nil "Header header~%float64 delta_x~%float64 timestamp~%float64[2] obj_x_y~%float64 obj_orient~%float64[2] robot_x_y~%float64 robot_orient~%int16 n_type~%float64[] scores~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%# 0: no frame~%# 1: global frame~%string frame_id~%~%~%"))
+  (cl:format cl:nil "Header header~%float64 delta_x~%float64 timestamp~%float64[2] obj_x_y~%float64 obj_orient~%float64[2] robot_x_y~%float64 robot_orient~%float64 pan_orient~%int16 n_type~%float64[] scores~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%# 0: no frame~%# 1: global frame~%string frame_id~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'msg_detection)))
   "Returns full string definition for message of type 'msg_detection"
-  (cl:format cl:nil "Header header~%float64 delta_x~%float64 timestamp~%float64[2] obj_x_y~%float64 obj_orient~%float64[2] robot_x_y~%float64 robot_orient~%int16 n_type~%float64[] scores~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%# 0: no frame~%# 1: global frame~%string frame_id~%~%~%"))
+  (cl:format cl:nil "Header header~%float64 delta_x~%float64 timestamp~%float64[2] obj_x_y~%float64 obj_orient~%float64[2] robot_x_y~%float64 robot_orient~%float64 pan_orient~%int16 n_type~%float64[] scores~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%# 0: no frame~%# 1: global frame~%string frame_id~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <msg_detection>))
   (cl:+ 0
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'header))
@@ -304,6 +333,7 @@
      0 (cl:reduce #'cl:+ (cl:slot-value msg 'obj_x_y) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 8)))
      8
      0 (cl:reduce #'cl:+ (cl:slot-value msg 'robot_x_y) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 8)))
+     8
      8
      2
      4 (cl:reduce #'cl:+ (cl:slot-value msg 'scores) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 8)))
@@ -318,6 +348,7 @@
     (cl:cons ':obj_orient (obj_orient msg))
     (cl:cons ':robot_x_y (robot_x_y msg))
     (cl:cons ':robot_orient (robot_orient msg))
+    (cl:cons ':pan_orient (pan_orient msg))
     (cl:cons ':n_type (n_type msg))
     (cl:cons ':scores (scores msg))
 ))

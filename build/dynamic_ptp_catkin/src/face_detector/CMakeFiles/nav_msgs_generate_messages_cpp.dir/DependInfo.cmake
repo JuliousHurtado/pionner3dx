@@ -21,6 +21,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/include"
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/../newmat/include/newmat"
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/../common_code/include/common_code"
+  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/../il_map_tools/include/il_map_tools"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

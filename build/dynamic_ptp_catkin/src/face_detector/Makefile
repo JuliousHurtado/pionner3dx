@@ -164,6 +164,20 @@ face_detector/fast:
 .PHONY : face_detector/fast
 
 # Convenience name for target.
+dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector_lib.dir/rule:
+	cd /home/champion/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector_lib.dir/rule
+.PHONY : dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector_lib.dir/rule
+
+# Convenience name for target.
+face_detector_lib: dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector_lib.dir/rule
+.PHONY : face_detector_lib
+
+# fast build rule for target.
+face_detector_lib/fast:
+	cd /home/champion/catkin_ws/build && $(MAKE) -f dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector_lib.dir/build.make dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector_lib.dir/build
+.PHONY : face_detector_lib/fast
+
+# Convenience name for target.
 dynamic_ptp_catkin/src/face_detector/CMakeFiles/map_msgs_generate_messages_cpp.dir/rule:
 	cd /home/champion/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 dynamic_ptp_catkin/src/face_detector/CMakeFiles/map_msgs_generate_messages_cpp.dir/rule
 .PHONY : dynamic_ptp_catkin/src/face_detector/CMakeFiles/map_msgs_generate_messages_cpp.dir/rule
@@ -295,6 +309,7 @@ src/Detector.o: src/Detector.cpp.o
 # target to build an object file
 src/Detector.cpp.o:
 	cd /home/champion/catkin_ws/build && $(MAKE) -f dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector.dir/build.make dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector.dir/src/Detector.cpp.o
+	cd /home/champion/catkin_ws/build && $(MAKE) -f dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector_lib.dir/build.make dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector_lib.dir/src/Detector.cpp.o
 .PHONY : src/Detector.cpp.o
 
 src/Detector.i: src/Detector.cpp.i
@@ -303,6 +318,7 @@ src/Detector.i: src/Detector.cpp.i
 # target to preprocess a source file
 src/Detector.cpp.i:
 	cd /home/champion/catkin_ws/build && $(MAKE) -f dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector.dir/build.make dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector.dir/src/Detector.cpp.i
+	cd /home/champion/catkin_ws/build && $(MAKE) -f dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector_lib.dir/build.make dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector_lib.dir/src/Detector.cpp.i
 .PHONY : src/Detector.cpp.i
 
 src/Detector.s: src/Detector.cpp.s
@@ -311,6 +327,7 @@ src/Detector.s: src/Detector.cpp.s
 # target to generate assembly for a file
 src/Detector.cpp.s:
 	cd /home/champion/catkin_ws/build && $(MAKE) -f dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector.dir/build.make dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector.dir/src/Detector.cpp.s
+	cd /home/champion/catkin_ws/build && $(MAKE) -f dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector_lib.dir/build.make dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector_lib.dir/src/Detector.cpp.s
 .PHONY : src/Detector.cpp.s
 
 # Help Target
@@ -321,6 +338,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... face_detector"
+	@echo "... face_detector_lib"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"

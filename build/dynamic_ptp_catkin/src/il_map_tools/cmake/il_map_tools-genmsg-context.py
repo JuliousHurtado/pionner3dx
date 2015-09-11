@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = ""
-services_str = "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/srv_occupied.srv"
+services_str = "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/srv_occupied.srv;/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/Pan_tilt.srv"
 pkg_name = "il_map_tools"
 dependencies_str = "nav_msgs;std_msgs"
 langs = "gencpp;genlisp;genpy"

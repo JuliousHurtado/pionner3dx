@@ -45,25 +45,15 @@ CMAKE_BINARY_DIR = /home/champion/catkin_ws/build
 # Include the progress variables for this target.
 include dynamic_ptp_catkin/src/common_code/CMakeFiles/common_code_generate_messages_cpp.dir/progress.make
 
-dynamic_ptp_catkin/src/common_code/CMakeFiles/common_code_generate_messages_cpp: /home/champion/catkin_ws/devel/include/common_code/Camino.h
 dynamic_ptp_catkin/src/common_code/CMakeFiles/common_code_generate_messages_cpp: /home/champion/catkin_ws/devel/include/common_code/Punto.h
 dynamic_ptp_catkin/src/common_code/CMakeFiles/common_code_generate_messages_cpp: /home/champion/catkin_ws/devel/include/common_code/msg_detection.h
-dynamic_ptp_catkin/src/common_code/CMakeFiles/common_code_generate_messages_cpp: /home/champion/catkin_ws/devel/include/common_code/Pan_tilt.h
-
-/home/champion/catkin_ws/devel/include/common_code/Camino.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
-/home/champion/catkin_ws/devel/include/common_code/Camino.h: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg
-/home/champion/catkin_ws/devel/include/common_code/Camino.h: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg
-/home/champion/catkin_ws/devel/include/common_code/Camino.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
-/home/champion/catkin_ws/devel/include/common_code/Camino.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from common_code/Camino.msg"
-	cd /home/champion/catkin_ws/build/dynamic_ptp_catkin/src/common_code && ../../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg -Icommon_code:/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p common_code -o /home/champion/catkin_ws/devel/include/common_code -e /opt/ros/indigo/share/gencpp/cmake/..
+dynamic_ptp_catkin/src/common_code/CMakeFiles/common_code_generate_messages_cpp: /home/champion/catkin_ws/devel/include/common_code/Camino.h
 
 /home/champion/catkin_ws/devel/include/common_code/Punto.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
 /home/champion/catkin_ws/devel/include/common_code/Punto.h: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg
 /home/champion/catkin_ws/devel/include/common_code/Punto.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
 /home/champion/catkin_ws/devel/include/common_code/Punto.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from common_code/Punto.msg"
 	cd /home/champion/catkin_ws/build/dynamic_ptp_catkin/src/common_code && ../../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg -Icommon_code:/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p common_code -o /home/champion/catkin_ws/devel/include/common_code -e /opt/ros/indigo/share/gencpp/cmake/..
 
@@ -71,23 +61,23 @@ dynamic_ptp_catkin/src/common_code/CMakeFiles/common_code_generate_messages_cpp:
 /home/champion/catkin_ws/devel/include/common_code/msg_detection.h: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/msg_detection.msg
 /home/champion/catkin_ws/devel/include/common_code/msg_detection.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
 /home/champion/catkin_ws/devel/include/common_code/msg_detection.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from common_code/msg_detection.msg"
 	cd /home/champion/catkin_ws/build/dynamic_ptp_catkin/src/common_code && ../../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/msg_detection.msg -Icommon_code:/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p common_code -o /home/champion/catkin_ws/devel/include/common_code -e /opt/ros/indigo/share/gencpp/cmake/..
 
-/home/champion/catkin_ws/devel/include/common_code/Pan_tilt.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
-/home/champion/catkin_ws/devel/include/common_code/Pan_tilt.h: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Pan_tilt.msg
-/home/champion/catkin_ws/devel/include/common_code/Pan_tilt.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
-/home/champion/catkin_ws/devel/include/common_code/Pan_tilt.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from common_code/Pan_tilt.msg"
-	cd /home/champion/catkin_ws/build/dynamic_ptp_catkin/src/common_code && ../../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Pan_tilt.msg -Icommon_code:/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p common_code -o /home/champion/catkin_ws/devel/include/common_code -e /opt/ros/indigo/share/gencpp/cmake/..
+/home/champion/catkin_ws/devel/include/common_code/Camino.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/home/champion/catkin_ws/devel/include/common_code/Camino.h: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg
+/home/champion/catkin_ws/devel/include/common_code/Camino.h: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg
+/home/champion/catkin_ws/devel/include/common_code/Camino.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
+/home/champion/catkin_ws/devel/include/common_code/Camino.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from common_code/Camino.msg"
+	cd /home/champion/catkin_ws/build/dynamic_ptp_catkin/src/common_code && ../../../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg -Icommon_code:/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p common_code -o /home/champion/catkin_ws/devel/include/common_code -e /opt/ros/indigo/share/gencpp/cmake/..
 
 common_code_generate_messages_cpp: dynamic_ptp_catkin/src/common_code/CMakeFiles/common_code_generate_messages_cpp
-common_code_generate_messages_cpp: /home/champion/catkin_ws/devel/include/common_code/Camino.h
 common_code_generate_messages_cpp: /home/champion/catkin_ws/devel/include/common_code/Punto.h
 common_code_generate_messages_cpp: /home/champion/catkin_ws/devel/include/common_code/msg_detection.h
-common_code_generate_messages_cpp: /home/champion/catkin_ws/devel/include/common_code/Pan_tilt.h
+common_code_generate_messages_cpp: /home/champion/catkin_ws/devel/include/common_code/Camino.h
 common_code_generate_messages_cpp: dynamic_ptp_catkin/src/common_code/CMakeFiles/common_code_generate_messages_cpp.dir/build.make
 .PHONY : common_code_generate_messages_cpp
 

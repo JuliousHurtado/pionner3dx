@@ -33,7 +33,10 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/il_map_tools/srv" TYPE FILE FILES "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/srv_occupied.srv")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/il_map_tools/srv" TYPE FILE FILES
+    "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/srv_occupied.srv"
+    "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/Pan_tilt.srv"
+    )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")

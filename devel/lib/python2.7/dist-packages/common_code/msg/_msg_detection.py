@@ -7,7 +7,7 @@ import struct
 import std_msgs.msg
 
 class msg_detection(genpy.Message):
-  _md5sum = "66d102c3c2c8a4d041610d1708a31562"
+  _md5sum = "e377bdbe3c001f0f670ed6de22af24ee"
   _type = "common_code/msg_detection"
   _has_header = True #flag to mark the presence of a Header object
   _full_text = """Header header
@@ -17,6 +17,7 @@ float64[2] obj_x_y
 float64 obj_orient
 float64[2] robot_x_y
 float64 robot_orient
+float64 pan_orient
 int16 n_type
 float64[] scores
 
@@ -39,8 +40,8 @@ time stamp
 string frame_id
 
 """
-  __slots__ = ['header','delta_x','timestamp','obj_x_y','obj_orient','robot_x_y','robot_orient','n_type','scores']
-  _slot_types = ['std_msgs/Header','float64','float64','float64[2]','float64','float64[2]','float64','int16','float64[]']
+  __slots__ = ['header','delta_x','timestamp','obj_x_y','obj_orient','robot_x_y','robot_orient','pan_orient','n_type','scores']
+  _slot_types = ['std_msgs/Header','float64','float64','float64[2]','float64','float64[2]','float64','float64','int16','float64[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -50,7 +51,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,delta_x,timestamp,obj_x_y,obj_orient,robot_x_y,robot_orient,n_type,scores
+       header,delta_x,timestamp,obj_x_y,obj_orient,robot_x_y,robot_orient,pan_orient,n_type,scores
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -73,6 +74,8 @@ string frame_id
         self.robot_x_y = [0.,0.]
       if self.robot_orient is None:
         self.robot_orient = 0.
+      if self.pan_orient is None:
+        self.pan_orient = 0.
       if self.n_type is None:
         self.n_type = 0
       if self.scores is None:
@@ -85,6 +88,7 @@ string frame_id
       self.obj_orient = 0.
       self.robot_x_y = [0.,0.]
       self.robot_orient = 0.
+      self.pan_orient = 0.
       self.n_type = 0
       self.scores = []
 
@@ -117,7 +121,7 @@ string frame_id
       buff.write(_struct_d.pack(self.obj_orient))
       buff.write(_struct_2d.pack(*self.robot_x_y))
       _x = self
-      buff.write(_struct_dh.pack(_x.robot_orient, _x.n_type))
+      buff.write(_struct_2dh.pack(_x.robot_orient, _x.pan_orient, _x.n_type))
       length = len(self.scores)
       buff.write(_struct_I.pack(length))
       pattern = '<%sd'%length
@@ -162,8 +166,8 @@ string frame_id
       self.robot_x_y = _struct_2d.unpack(str[start:end])
       _x = self
       start = end
-      end += 10
-      (_x.robot_orient, _x.n_type,) = _struct_dh.unpack(str[start:end])
+      end += 18
+      (_x.robot_orient, _x.pan_orient, _x.n_type,) = _struct_2dh.unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -200,7 +204,7 @@ string frame_id
       buff.write(_struct_d.pack(self.obj_orient))
       buff.write(self.robot_x_y.tostring())
       _x = self
-      buff.write(_struct_dh.pack(_x.robot_orient, _x.n_type))
+      buff.write(_struct_2dh.pack(_x.robot_orient, _x.pan_orient, _x.n_type))
       length = len(self.scores)
       buff.write(_struct_I.pack(length))
       pattern = '<%sd'%length
@@ -246,8 +250,8 @@ string frame_id
       self.robot_x_y = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=2)
       _x = self
       start = end
-      end += 10
-      (_x.robot_orient, _x.n_type,) = _struct_dh.unpack(str[start:end])
+      end += 18
+      (_x.robot_orient, _x.pan_orient, _x.n_type,) = _struct_2dh.unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -263,4 +267,4 @@ _struct_I = genpy.struct_I
 _struct_2d = struct.Struct("<2d")
 _struct_3I = struct.Struct("<3I")
 _struct_d = struct.Struct("<d")
-_struct_dh = struct.Struct("<dh")
+_struct_2dh = struct.Struct("<2dh")

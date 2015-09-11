@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 
 from messages.srv import *
+from messages.msg import Pan_tilt_mess
 import rospy
 from geometry_msgs.msg import PoseWithCovarianceStamped
 from threading import Thread
 from Quaternion import Quat
+from pantilt import Pantilt
 
 ang_pan = 0.0
 ang_tilt = 0.0
@@ -19,6 +21,7 @@ class Pan_Tilt(object):
         self.pose_robot = None
 
         self.__pose_sub = rospy.Subscriber('/amcl_pose', PoseWithCovarianceStamped, self.__pose_handler)
+        self.__sub_camino = rospy.Subscriber("talk_pan_tilt", Pan_tilt, self.chatter_handler)
 
         #self.seguir()
 
@@ -46,6 +49,34 @@ class Pan_Tilt(object):
         ang_mapa = q.ra
 
         print q.ra
+
+    def chatter_handler(self,data):
+        global ang_tilt
+        global ang_pan
+
+        pan = data.pan
+        titl = data.tilt
+
+        ang_pan = pan
+        ang_tilt = tilt
+
+        self.move_panTilt()
+
+    def move_panTilt(self):
+        global ang_pan
+        global ang_tilt
+
+        pantilt = Pantilt('/dev/ttyUSB2',9600) #Change port and baudrate
+        pantilt.open()
+
+        pan = ang_pan
+        tilt = ang_tilt
+
+        pantilt.set_angle(pan,tilt) #pan,tilt
+
+        time.sleep(3)
+
+        pantilt.close()
 
 def handle_add_two_ints(seq):
     #print "Returning [%s + %s = %s]"%(req.a, req.b, (req.a + req.b))

@@ -10,6 +10,11 @@ dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp
  /home/champion/catkin_ws/devel/include/il_map_tools/srv_occupiedResponse.h
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../common_code/include/common_code/common_code.h
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../dpgp/include/DPGP/DPGP.h
+ /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../face_detector/include/NiSimpleSkeleton.h
+ /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../face_detector/include/classifier_func.h
+ /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../face_detector/include/face_detector.h
+ /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../face_detector/include/hog_func.h
+ /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../face_detector/include/list_dir.h
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../il_map_tools/include/il_map_tools/il_map_tools.h
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../newmat/include/newmat/boolean.h
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../newmat/include/newmat/include.h
@@ -28,6 +33,7 @@ dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/src/DynamicPTP.cpp
  /opt/ros/indigo/include/XmlRpcDecl.h
  /opt/ros/indigo/include/XmlRpcValue.h
+ /opt/ros/indigo/include/cv_bridge/cv_bridge.h
  /opt/ros/indigo/include/geometry_msgs/Point.h
  /opt/ros/indigo/include/geometry_msgs/Point32.h
  /opt/ros/indigo/include/geometry_msgs/PointStamped.h
@@ -43,6 +49,15 @@ dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp
  /opt/ros/indigo/include/geometry_msgs/TwistWithCovariance.h
  /opt/ros/indigo/include/geometry_msgs/Vector3.h
  /opt/ros/indigo/include/geometry_msgs/Vector3Stamped.h
+ /opt/ros/indigo/include/image_transport/camera_publisher.h
+ /opt/ros/indigo/include/image_transport/camera_subscriber.h
+ /opt/ros/indigo/include/image_transport/exception.h
+ /opt/ros/indigo/include/image_transport/image_transport.h
+ /opt/ros/indigo/include/image_transport/loader_fwds.h
+ /opt/ros/indigo/include/image_transport/publisher.h
+ /opt/ros/indigo/include/image_transport/single_subscriber_publisher.h
+ /opt/ros/indigo/include/image_transport/subscriber.h
+ /opt/ros/indigo/include/image_transport/transport_hints.h
  /opt/ros/indigo/include/nav_msgs/MapMetaData.h
  /opt/ros/indigo/include/nav_msgs/OccupancyGrid.h
  /opt/ros/indigo/include/nav_msgs/Odometry.h
@@ -102,8 +117,11 @@ dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp
  /opt/ros/indigo/include/ros/wall_timer.h
  /opt/ros/indigo/include/ros/wall_timer_options.h
  /opt/ros/indigo/include/rosconsole/macros_generated.h
+ /opt/ros/indigo/include/sensor_msgs/CameraInfo.h
  /opt/ros/indigo/include/sensor_msgs/ChannelFloat32.h
+ /opt/ros/indigo/include/sensor_msgs/Image.h
  /opt/ros/indigo/include/sensor_msgs/PointCloud.h
+ /opt/ros/indigo/include/sensor_msgs/RegionOfInterest.h
  /opt/ros/indigo/include/std_msgs/Empty.h
  /opt/ros/indigo/include/std_msgs/Header.h
  /opt/ros/indigo/include/tf/FrameGraph.h

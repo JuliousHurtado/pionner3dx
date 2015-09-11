@@ -3,11 +3,12 @@
 import sys
 import rospy
 from messages.srv import *
+from il_map_tools.srv import *
 
 def add_two_ints_client():
-    rospy.wait_for_service('add_two_ints')
+    rospy.wait_for_service('pan_tilt_srv')
     try:
-        add_two_ints = rospy.ServiceProxy('add_two_ints', Pan_tilt)
+        add_two_ints = rospy.ServiceProxy('pan_tilt_srv', Pan_tilt)
         resp1 = add_two_ints()
         print resp1
     except rospy.ServiceException, e:

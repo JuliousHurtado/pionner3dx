@@ -23,6 +23,7 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/champion/catkin_ws/build/dynamic_ptp_catkin/src/dpgp/CMakeFiles/dpgp.dir/DependInfo.cmake"
   "/home/champion/catkin_ws/build/dynamic_ptp_catkin/src/ptp/CMakeFiles/ptp.dir/DependInfo.cmake"
   "/home/champion/catkin_ws/build/dynamic_ptp_catkin/src/il_map_tools/CMakeFiles/il_map_tools.dir/DependInfo.cmake"
+  "/home/champion/catkin_ws/build/dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector_lib.dir/DependInfo.cmake"
   )
 
 # The include file search paths:
@@ -38,6 +39,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../dpgp/include/DPGP"
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../ptp/include/ptp"
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../il_map_tools/include/il_map_tools"
+  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../face_detector/include"
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/include/dynamic_ptp"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

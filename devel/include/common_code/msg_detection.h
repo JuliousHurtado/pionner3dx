@@ -32,6 +32,7 @@ struct msg_detection_
     , obj_orient(0.0)
     , robot_x_y()
     , robot_orient(0.0)
+    , pan_orient(0.0)
     , n_type(0)
     , scores()  {
       obj_x_y.assign(0.0);
@@ -46,6 +47,7 @@ struct msg_detection_
     , obj_orient(0.0)
     , robot_x_y()
     , robot_orient(0.0)
+    , pan_orient(0.0)
     , n_type(0)
     , scores(_alloc)  {
       obj_x_y.assign(0.0);
@@ -75,6 +77,9 @@ struct msg_detection_
 
    typedef double _robot_orient_type;
   _robot_orient_type robot_orient;
+
+   typedef double _pan_orient_type;
+  _pan_orient_type pan_orient;
 
    typedef int16_t _n_type_type;
   _n_type_type n_type;
@@ -159,12 +164,12 @@ struct MD5Sum< ::common_code::msg_detection_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "66d102c3c2c8a4d041610d1708a31562";
+    return "e377bdbe3c001f0f670ed6de22af24ee";
   }
 
   static const char* value(const ::common_code::msg_detection_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x66d102c3c2c8a4d0ULL;
-  static const uint64_t static_value2 = 0x41610d1708a31562ULL;
+  static const uint64_t static_value1 = 0xe377bdbe3c001f0fULL;
+  static const uint64_t static_value2 = 0x670ed6de22af24eeULL;
 };
 
 template<class ContainerAllocator>
@@ -190,6 +195,7 @@ float64[2] obj_x_y\n\
 float64 obj_orient\n\
 float64[2] robot_x_y\n\
 float64 robot_orient\n\
+float64 pan_orient\n\
 int16 n_type\n\
 float64[] scores\n\
 \n\
@@ -235,6 +241,7 @@ namespace serialization
       stream.next(m.obj_orient);
       stream.next(m.robot_x_y);
       stream.next(m.robot_orient);
+      stream.next(m.pan_orient);
       stream.next(m.n_type);
       stream.next(m.scores);
     }
@@ -278,6 +285,8 @@ struct Printer< ::common_code::msg_detection_<ContainerAllocator> >
     }
     s << indent << "robot_orient: ";
     Printer<double>::stream(s, indent + "  ", v.robot_orient);
+    s << indent << "pan_orient: ";
+    Printer<double>::stream(s, indent + "  ", v.pan_orient);
     s << indent << "n_type: ";
     Printer<int16_t>::stream(s, indent + "  ", v.n_type);
     s << indent << "scores[]" << std::endl;

@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "il_map_tools: 0 messages, 1 services")
+message(STATUS "il_map_tools: 0 messages, 2 services")
 
 set(MSG_I_FLAGS "-Inav_msgs:/opt/ros/indigo/share/nav_msgs/cmake/../msg;-Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg;-Iactionlib_msgs:/opt/ros/indigo/share/actionlib_msgs/cmake/../msg")
 
@@ -15,6 +15,11 @@ add_custom_target(il_map_tools_generate_messages ALL)
 
 
 
+get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/Pan_tilt.srv" NAME_WE)
+add_custom_target(_il_map_tools_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "il_map_tools" "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/Pan_tilt.srv" ""
+)
+
 get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/srv_occupied.srv" NAME_WE)
 add_custom_target(_il_map_tools_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "il_map_tools" "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/srv_occupied.srv" "geometry_msgs/Quaternion:geometry_msgs/Point:geometry_msgs/Pose"
@@ -28,6 +33,12 @@ add_custom_target(_il_map_tools_generate_messages_check_deps_${_filename}
 ### Generating Messages
 
 ### Generating Services
+_generate_srv_cpp(il_map_tools
+  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/Pan_tilt.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/il_map_tools
+)
 _generate_srv_cpp(il_map_tools
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/srv_occupied.srv"
   "${MSG_I_FLAGS}"
@@ -47,6 +58,8 @@ add_custom_target(il_map_tools_generate_messages_cpp
 add_dependencies(il_map_tools_generate_messages il_map_tools_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/Pan_tilt.srv" NAME_WE)
+add_dependencies(il_map_tools_generate_messages_cpp _il_map_tools_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/srv_occupied.srv" NAME_WE)
 add_dependencies(il_map_tools_generate_messages_cpp _il_map_tools_generate_messages_check_deps_${_filename})
 
@@ -61,6 +74,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS il_map_tools_generate_messages_cpp)
 ### Generating Messages
 
 ### Generating Services
+_generate_srv_lisp(il_map_tools
+  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/Pan_tilt.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/il_map_tools
+)
 _generate_srv_lisp(il_map_tools
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/srv_occupied.srv"
   "${MSG_I_FLAGS}"
@@ -80,6 +99,8 @@ add_custom_target(il_map_tools_generate_messages_lisp
 add_dependencies(il_map_tools_generate_messages il_map_tools_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/Pan_tilt.srv" NAME_WE)
+add_dependencies(il_map_tools_generate_messages_lisp _il_map_tools_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/srv_occupied.srv" NAME_WE)
 add_dependencies(il_map_tools_generate_messages_lisp _il_map_tools_generate_messages_check_deps_${_filename})
 
@@ -94,6 +115,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS il_map_tools_generate_messages_lisp
 ### Generating Messages
 
 ### Generating Services
+_generate_srv_py(il_map_tools
+  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/Pan_tilt.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/il_map_tools
+)
 _generate_srv_py(il_map_tools
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/srv_occupied.srv"
   "${MSG_I_FLAGS}"
@@ -113,6 +140,8 @@ add_custom_target(il_map_tools_generate_messages_py
 add_dependencies(il_map_tools_generate_messages il_map_tools_generate_messages_py)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/Pan_tilt.srv" NAME_WE)
+add_dependencies(il_map_tools_generate_messages_py _il_map_tools_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/il_map_tools/srv/srv_occupied.srv" NAME_WE)
 add_dependencies(il_map_tools_generate_messages_py _il_map_tools_generate_messages_check_deps_${_filename})
 

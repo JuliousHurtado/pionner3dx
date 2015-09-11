@@ -119,12 +119,12 @@ struct MD5Sum< ::common_code::Camino_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "42bd4a00a55412c2601be4e5f50c6df6";
+    return "a18639cc1614ee5059ad5ac8d18d4085";
   }
 
   static const char* value(const ::common_code::Camino_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x42bd4a00a55412c2ULL;
-  static const uint64_t static_value2 = 0x601be4e5f50c6df6ULL;
+  static const uint64_t static_value1 = 0xa18639cc1614ee50ULL;
+  static const uint64_t static_value2 = 0x59ad5ac8d18d4085ULL;
 };
 
 template<class ContainerAllocator>
@@ -171,7 +171,7 @@ float64 x\n\
 float64 y\n\
 float64 angulo_pan\n\
 float64 angulo_tilt\n\
-time tiempo\n\
+float64 tiempo\n\
 ";
   }
 

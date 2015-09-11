@@ -36,7 +36,6 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common_code/msg" TYPE FILE FILES
     "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/msg_detection.msg"
     "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg"
-    "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Pan_tilt.msg"
     "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")

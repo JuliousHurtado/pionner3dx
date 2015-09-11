@@ -164,20 +164,6 @@ _common_code_generate_messages_check_deps_Camino/fast:
 .PHONY : _common_code_generate_messages_check_deps_Camino/fast
 
 # Convenience name for target.
-dynamic_ptp_catkin/src/common_code/CMakeFiles/_common_code_generate_messages_check_deps_Pan_tilt.dir/rule:
-	cd /home/champion/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 dynamic_ptp_catkin/src/common_code/CMakeFiles/_common_code_generate_messages_check_deps_Pan_tilt.dir/rule
-.PHONY : dynamic_ptp_catkin/src/common_code/CMakeFiles/_common_code_generate_messages_check_deps_Pan_tilt.dir/rule
-
-# Convenience name for target.
-_common_code_generate_messages_check_deps_Pan_tilt: dynamic_ptp_catkin/src/common_code/CMakeFiles/_common_code_generate_messages_check_deps_Pan_tilt.dir/rule
-.PHONY : _common_code_generate_messages_check_deps_Pan_tilt
-
-# fast build rule for target.
-_common_code_generate_messages_check_deps_Pan_tilt/fast:
-	cd /home/champion/catkin_ws/build && $(MAKE) -f dynamic_ptp_catkin/src/common_code/CMakeFiles/_common_code_generate_messages_check_deps_Pan_tilt.dir/build.make dynamic_ptp_catkin/src/common_code/CMakeFiles/_common_code_generate_messages_check_deps_Pan_tilt.dir/build
-.PHONY : _common_code_generate_messages_check_deps_Pan_tilt/fast
-
-# Convenience name for target.
 dynamic_ptp_catkin/src/common_code/CMakeFiles/_common_code_generate_messages_check_deps_Punto.dir/rule:
 	cd /home/champion/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 dynamic_ptp_catkin/src/common_code/CMakeFiles/_common_code_generate_messages_check_deps_Punto.dir/rule
 .PHONY : dynamic_ptp_catkin/src/common_code/CMakeFiles/_common_code_generate_messages_check_deps_Punto.dir/rule
@@ -516,7 +502,6 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... _common_code_generate_messages_check_deps_Camino"
-	@echo "... _common_code_generate_messages_check_deps_Pan_tilt"
 	@echo "... _common_code_generate_messages_check_deps_Punto"
 	@echo "... _common_code_generate_messages_check_deps_msg_detection"
 	@echo "... actionlib_generate_messages_cpp"

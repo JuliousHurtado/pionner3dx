@@ -9,6 +9,11 @@ dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /home/champion/catkin_ws/devel/include/il_map_tools/srv_occupiedResponse.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../common_code/include/common_code/common_code.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../dpgp/include/DPGP/DPGP.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../face_detector/include/NiSimpleSkeleton.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../face_detector/include/classifier_func.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../face_detector/include/face_detector.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../face_detector/include/hog_func.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../face_detector/include/list_dir.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../il_map_tools/include/il_map_tools/il_map_tools.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../newmat/include/newmat/boolean.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/../newmat/include/newmat/include.h
@@ -27,6 +32,7 @@ dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/dynamic_ptp/src/DynamicPTP.cpp
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/XmlRpcDecl.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/XmlRpcValue.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/cv_bridge/cv_bridge.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/geometry_msgs/Point.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/geometry_msgs/Point32.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/geometry_msgs/PointStamped.h
@@ -42,6 +48,15 @@ dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/geometry_msgs/TwistWithCovariance.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/geometry_msgs/Vector3.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/geometry_msgs/Vector3Stamped.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/image_transport/camera_publisher.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/image_transport/camera_subscriber.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/image_transport/exception.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/image_transport/image_transport.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/image_transport/loader_fwds.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/image_transport/publisher.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/image_transport/single_subscriber_publisher.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/image_transport/subscriber.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/image_transport/transport_hints.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/nav_msgs/MapMetaData.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/nav_msgs/OccupancyGrid.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/nav_msgs/Odometry.h
@@ -101,8 +116,11 @@ dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/ros/wall_timer.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/ros/wall_timer_options.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/rosconsole/macros_generated.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/sensor_msgs/CameraInfo.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/sensor_msgs/ChannelFloat32.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/sensor_msgs/Image.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/sensor_msgs/PointCloud.h
+dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/sensor_msgs/RegionOfInterest.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/std_msgs/Empty.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/std_msgs/Header.h
 dynamic_ptp_catkin/src/dynamic_ptp/CMakeFiles/dynamic_ptp.dir/src/DynamicPTP.cpp.o: /opt/ros/indigo/include/tf/FrameGraph.h

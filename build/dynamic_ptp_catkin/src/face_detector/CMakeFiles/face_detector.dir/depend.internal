@@ -3,12 +3,14 @@
 
 dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector.dir/src/Detector.cpp.o
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/../common_code/include/common_code/common_code.h
+ /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/../il_map_tools/include/il_map_tools/il_map_tools.h
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/../newmat/include/newmat/boolean.h
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/../newmat/include/newmat/include.h
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/../newmat/include/newmat/myexcept.h
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/../newmat/include/newmat/newmat.h
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/include/NiSimpleSkeleton.h
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/include/classifier_func.h
+ /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/include/face_detector.h
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/include/hog_func.h
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/include/list_dir.h
  /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/face_detector/src/Detector.cpp
@@ -20,12 +22,14 @@ dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector.dir/src/Detector.c
  /opt/ros/indigo/include/geometry_msgs/PointStamped.h
  /opt/ros/indigo/include/geometry_msgs/Pose.h
  /opt/ros/indigo/include/geometry_msgs/PoseStamped.h
+ /opt/ros/indigo/include/geometry_msgs/PoseWithCovariance.h
  /opt/ros/indigo/include/geometry_msgs/Quaternion.h
  /opt/ros/indigo/include/geometry_msgs/QuaternionStamped.h
  /opt/ros/indigo/include/geometry_msgs/Transform.h
  /opt/ros/indigo/include/geometry_msgs/TransformStamped.h
  /opt/ros/indigo/include/geometry_msgs/Twist.h
  /opt/ros/indigo/include/geometry_msgs/TwistStamped.h
+ /opt/ros/indigo/include/geometry_msgs/TwistWithCovariance.h
  /opt/ros/indigo/include/geometry_msgs/Vector3.h
  /opt/ros/indigo/include/geometry_msgs/Vector3Stamped.h
  /opt/ros/indigo/include/image_transport/camera_publisher.h
@@ -37,6 +41,9 @@ dynamic_ptp_catkin/src/face_detector/CMakeFiles/face_detector.dir/src/Detector.c
  /opt/ros/indigo/include/image_transport/single_subscriber_publisher.h
  /opt/ros/indigo/include/image_transport/subscriber.h
  /opt/ros/indigo/include/image_transport/transport_hints.h
+ /opt/ros/indigo/include/nav_msgs/MapMetaData.h
+ /opt/ros/indigo/include/nav_msgs/OccupancyGrid.h
+ /opt/ros/indigo/include/nav_msgs/Odometry.h
  /opt/ros/indigo/include/ros/advertise_options.h
  /opt/ros/indigo/include/ros/advertise_service_options.h
  /opt/ros/indigo/include/ros/assert.h

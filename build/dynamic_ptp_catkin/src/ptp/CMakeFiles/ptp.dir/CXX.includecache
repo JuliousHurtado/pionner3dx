@@ -6,6 +6,24 @@
 
 #IncludeRegexTransform: 
 
+/home/champion/catkin_ws/devel/include/common_code/msg_detection.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/Header.h
+-
+
 /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/ptp/../common_code/include/common_code/common_code.h
 ros/ros.h
 -
@@ -292,16 +310,6 @@ SOGP.h
 sensor_model.h
 /home/champion/catkin_ws/src/dynamic_ptp_catkin/src/ptp/src/sensor_model.h
 
-/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/ptp/src/tracked_objects.cpp
-common_code.h
-/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/ptp/src/common_code.h
-sensor_model.h
-/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/ptp/src/sensor_model.h
-perception_field.h
-/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/ptp/src/perception_field.h
-tracked_objects.h
-/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/ptp/src/tracked_objects.h
-
 /opt/ros/indigo/include/XmlRpcDecl.h
 ros/macros.h
 -
@@ -520,6 +528,10 @@ boost/make_shared.hpp
 cstddef
 -
 memory
+-
+
+/opt/ros/indigo/include/ros/message_operations.h
+ostream
 -
 
 /opt/ros/indigo/include/ros/message_traits.h
@@ -939,4 +951,20 @@ ros/forwards.h
 /opt/ros/indigo/include/ros/ros/forwards.h
 
 /opt/ros/indigo/include/rosconsole/macros_generated.h
+
+/opt/ros/indigo/include/std_msgs/Header.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
 

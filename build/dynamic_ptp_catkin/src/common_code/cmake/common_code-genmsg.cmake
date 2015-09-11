@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "common_code: 4 messages, 0 services")
+message(STATUS "common_code: 3 messages, 0 services")
 
 set(MSG_I_FLAGS "-Icommon_code:/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg;-Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg")
 
@@ -15,9 +15,9 @@ add_custom_target(common_code_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg" NAME_WE)
+get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg" NAME_WE)
 add_custom_target(_common_code_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "common_code" "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg" "common_code/Punto:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "common_code" "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg" "std_msgs/Header"
 )
 
 get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/msg_detection.msg" NAME_WE)
@@ -25,14 +25,9 @@ add_custom_target(_common_code_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "common_code" "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/msg_detection.msg" "std_msgs/Header"
 )
 
-get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Pan_tilt.msg" NAME_WE)
+get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg" NAME_WE)
 add_custom_target(_common_code_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "common_code" "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Pan_tilt.msg" "std_msgs/Header"
-)
-
-get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg" NAME_WE)
-add_custom_target(_common_code_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "common_code" "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg" "std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "common_code" "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg" "common_code/Punto:std_msgs/Header"
 )
 
 #
@@ -41,12 +36,6 @@ add_custom_target(_common_code_generate_messages_check_deps_${_filename}
 
 ### Section generating for lang: gencpp
 ### Generating Messages
-_generate_msg_cpp(common_code
-  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg"
-  "${MSG_I_FLAGS}"
-  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/common_code
-)
 _generate_msg_cpp(common_code
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg"
   "${MSG_I_FLAGS}"
@@ -60,9 +49,9 @@ _generate_msg_cpp(common_code
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/common_code
 )
 _generate_msg_cpp(common_code
-  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Pan_tilt.msg"
+  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/common_code
 )
 
@@ -80,13 +69,11 @@ add_custom_target(common_code_generate_messages_cpp
 add_dependencies(common_code_generate_messages common_code_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg" NAME_WE)
+get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg" NAME_WE)
 add_dependencies(common_code_generate_messages_cpp _common_code_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/msg_detection.msg" NAME_WE)
 add_dependencies(common_code_generate_messages_cpp _common_code_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Pan_tilt.msg" NAME_WE)
-add_dependencies(common_code_generate_messages_cpp _common_code_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg" NAME_WE)
+get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg" NAME_WE)
 add_dependencies(common_code_generate_messages_cpp _common_code_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -98,12 +85,6 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS common_code_generate_messages_cpp)
 
 ### Section generating for lang: genlisp
 ### Generating Messages
-_generate_msg_lisp(common_code
-  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg"
-  "${MSG_I_FLAGS}"
-  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/common_code
-)
 _generate_msg_lisp(common_code
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg"
   "${MSG_I_FLAGS}"
@@ -117,9 +98,9 @@ _generate_msg_lisp(common_code
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/common_code
 )
 _generate_msg_lisp(common_code
-  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Pan_tilt.msg"
+  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/common_code
 )
 
@@ -137,13 +118,11 @@ add_custom_target(common_code_generate_messages_lisp
 add_dependencies(common_code_generate_messages common_code_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg" NAME_WE)
+get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg" NAME_WE)
 add_dependencies(common_code_generate_messages_lisp _common_code_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/msg_detection.msg" NAME_WE)
 add_dependencies(common_code_generate_messages_lisp _common_code_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Pan_tilt.msg" NAME_WE)
-add_dependencies(common_code_generate_messages_lisp _common_code_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg" NAME_WE)
+get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg" NAME_WE)
 add_dependencies(common_code_generate_messages_lisp _common_code_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -155,12 +134,6 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS common_code_generate_messages_lisp)
 
 ### Section generating for lang: genpy
 ### Generating Messages
-_generate_msg_py(common_code
-  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg"
-  "${MSG_I_FLAGS}"
-  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/common_code
-)
 _generate_msg_py(common_code
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg"
   "${MSG_I_FLAGS}"
@@ -174,9 +147,9 @@ _generate_msg_py(common_code
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/common_code
 )
 _generate_msg_py(common_code
-  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Pan_tilt.msg"
+  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/common_code
 )
 
@@ -194,13 +167,11 @@ add_custom_target(common_code_generate_messages_py
 add_dependencies(common_code_generate_messages common_code_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg" NAME_WE)
+get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg" NAME_WE)
 add_dependencies(common_code_generate_messages_py _common_code_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/msg_detection.msg" NAME_WE)
 add_dependencies(common_code_generate_messages_py _common_code_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Pan_tilt.msg" NAME_WE)
-add_dependencies(common_code_generate_messages_py _common_code_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg" NAME_WE)
+get_filename_component(_filename "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg" NAME_WE)
 add_dependencies(common_code_generate_messages_py _common_code_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

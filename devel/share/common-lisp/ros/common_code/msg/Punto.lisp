@@ -35,8 +35,8 @@
    (tiempo
     :reader tiempo
     :initarg :tiempo
-    :type cl:real
-    :initform 0))
+    :type cl:float
+    :initform 0.0))
 )
 
 (cl:defclass Punto (<Punto>)
@@ -115,16 +115,15 @@
     (cl:write-byte (cl:ldb (cl:byte 8 40) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream))
-  (cl:let ((__sec (cl:floor (cl:slot-value msg 'tiempo)))
-        (__nsec (cl:round (cl:* 1e9 (cl:- (cl:slot-value msg 'tiempo) (cl:floor (cl:slot-value msg 'tiempo)))))))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) __sec) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) __sec) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) __sec) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) __sec) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 0) __nsec) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) __nsec) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) __nsec) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) __nsec) ostream))
+  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'tiempo))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 32) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 40) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream))
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <Punto>) istream)
   "Deserializes a message object of type '<Punto>"
@@ -169,16 +168,16 @@
       (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
     (cl:setf (cl:slot-value msg 'angulo_tilt) (roslisp-utils:decode-double-float-bits bits)))
-    (cl:let ((__sec 0) (__nsec 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) __sec) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) __sec) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 16) __sec) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 24) __sec) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 0) __nsec) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) __nsec) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 16) __nsec) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 24) __nsec) (cl:read-byte istream))
-      (cl:setf (cl:slot-value msg 'tiempo) (cl:+ (cl:coerce __sec 'cl:double-float) (cl:/ __nsec 1e9))))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 32) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'tiempo) (roslisp-utils:decode-double-float-bits bits)))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<Punto>)))
@@ -189,16 +188,16 @@
   "common_code/Punto")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<Punto>)))
   "Returns md5sum for a message object of type '<Punto>"
-  "ac5be4227b0a4543b9b6cfe77fc73199")
+  "3e2dde8e5483b601bd85a0bcfe1e9b50")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'Punto)))
   "Returns md5sum for a message object of type 'Punto"
-  "ac5be4227b0a4543b9b6cfe77fc73199")
+  "3e2dde8e5483b601bd85a0bcfe1e9b50")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Punto>)))
   "Returns full string definition for message of type '<Punto>"
-  (cl:format cl:nil "Header header~%float64 x~%float64 y~%float64 angulo_pan~%float64 angulo_tilt~%time tiempo~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%# 0: no frame~%# 1: global frame~%string frame_id~%~%~%"))
+  (cl:format cl:nil "Header header~%float64 x~%float64 y~%float64 angulo_pan~%float64 angulo_tilt~%float64 tiempo~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%# 0: no frame~%# 1: global frame~%string frame_id~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Punto)))
   "Returns full string definition for message of type 'Punto"
-  (cl:format cl:nil "Header header~%float64 x~%float64 y~%float64 angulo_pan~%float64 angulo_tilt~%time tiempo~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%# 0: no frame~%# 1: global frame~%string frame_id~%~%~%"))
+  (cl:format cl:nil "Header header~%float64 x~%float64 y~%float64 angulo_pan~%float64 angulo_tilt~%float64 tiempo~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%# 0: no frame~%# 1: global frame~%string frame_id~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Punto>))
   (cl:+ 0
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'header))

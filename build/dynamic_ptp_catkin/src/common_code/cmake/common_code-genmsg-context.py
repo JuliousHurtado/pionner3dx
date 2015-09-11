@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/msg_detection.msg;/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg;/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Pan_tilt.msg;/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg"
+messages_str = "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/msg_detection.msg;/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg;/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg"
 services_str = ""
 pkg_name = "common_code"
 dependencies_str = "std_msgs"

@@ -30,7 +30,7 @@ struct Punto_
     , y(0.0)
     , angulo_pan(0.0)
     , angulo_tilt(0.0)
-    , tiempo()  {
+    , tiempo(0.0)  {
     }
   Punto_(const ContainerAllocator& _alloc)
     : header(_alloc)
@@ -38,7 +38,7 @@ struct Punto_
     , y(0.0)
     , angulo_pan(0.0)
     , angulo_tilt(0.0)
-    , tiempo()  {
+    , tiempo(0.0)  {
     }
 
 
@@ -58,7 +58,7 @@ struct Punto_
    typedef double _angulo_tilt_type;
   _angulo_tilt_type angulo_tilt;
 
-   typedef ros::Time _tiempo_type;
+   typedef double _tiempo_type;
   _tiempo_type tiempo;
 
 
@@ -138,12 +138,12 @@ struct MD5Sum< ::common_code::Punto_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "ac5be4227b0a4543b9b6cfe77fc73199";
+    return "3e2dde8e5483b601bd85a0bcfe1e9b50";
   }
 
   static const char* value(const ::common_code::Punto_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xac5be4227b0a4543ULL;
-  static const uint64_t static_value2 = 0xb9b6cfe77fc73199ULL;
+  static const uint64_t static_value1 = 0x3e2dde8e5483b601ULL;
+  static const uint64_t static_value2 = 0xbd85a0bcfe1e9b50ULL;
 };
 
 template<class ContainerAllocator>
@@ -167,7 +167,7 @@ float64 x\n\
 float64 y\n\
 float64 angulo_pan\n\
 float64 angulo_tilt\n\
-time tiempo\n\
+float64 tiempo\n\
 \n\
 ================================================================================\n\
 MSG: std_msgs/Header\n\
@@ -240,7 +240,7 @@ struct Printer< ::common_code::Punto_<ContainerAllocator> >
     s << indent << "angulo_tilt: ";
     Printer<double>::stream(s, indent + "  ", v.angulo_tilt);
     s << indent << "tiempo: ";
-    Printer<ros::Time>::stream(s, indent + "  ", v.tiempo);
+    Printer<double>::stream(s, indent + "  ", v.tiempo);
   }
 };
 

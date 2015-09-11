@@ -13,6 +13,8 @@
           ROBOT_X_Y
           ROBOT_ORIENT-VAL
           ROBOT_ORIENT
+          PAN_ORIENT-VAL
+          PAN_ORIENT
           N_TYPE-VAL
           N_TYPE
           SCORES-VAL

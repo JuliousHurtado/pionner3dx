@@ -1,2 +1,2 @@
-set(common_code_MESSAGE_FILES "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/msg_detection.msg;/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg;/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Pan_tilt.msg;/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg")
+set(common_code_MESSAGE_FILES "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/msg_detection.msg;/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Punto.msg;/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/msg/Camino.msg")
 set(common_code_SERVICE_FILES "")

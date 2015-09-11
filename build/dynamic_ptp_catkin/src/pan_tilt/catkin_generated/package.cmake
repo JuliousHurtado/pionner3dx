@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "pan_tilt")
+set(pan_tilt_MAINTAINER "ivan <ivan@todo.todo>")
+set(pan_tilt_DEPRECATED "")
+set(pan_tilt_VERSION "0.0.0")
+set(pan_tilt_BUILD_DEPENDS "nav_msgs" "roscpp" "rospy" "std_msgs" "std_srvs" "tf")
+set(pan_tilt_RUN_DEPENDS "nav_msgs" "roscpp" "rospy" "std_msgs" "std_srvs" "tf")
+set(pan_tilt_BUILDTOOL_DEPENDS "catkin")
