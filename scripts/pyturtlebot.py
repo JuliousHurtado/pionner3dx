@@ -39,7 +39,7 @@ class Turtlebot(object):
     max_angular = 0.6 # 3.0
 
     def __init__(self):
-        rospy.init_node('pioneer', anonymous=True)
+        #rospy.init_node('pioneer', anonymous=True)
         rospy.myargv(argv=sys.argv)
 
         self.__x = None
@@ -83,13 +83,6 @@ class Turtlebot(object):
         self.__scan_sub = rospy.Subscriber('/scan', LaserScan, self.__scan_handler)
         #self.__mapa_sub = rospy.Subscriber('/map', OccupancyGrid, self.__mapa_handler)
 
-        self.plan_sus = rospy.Subscriber("move_base/TrajectoryPlannerROS/local_plan", Path, self.__plan_handler)
-        self.initial_sus = rospy.Subscriber("/initialpose", PoseWithCovarianceStamped, self.__initial_handler)
-        self.move_base = actionlib.SimpleActionClient("move_base", MoveBaseAction) 
-
-        self.__set_goal = rospy.Subscriber("move_base_simple/goal", Pose, self.__goal_handler)
-        #self.plan = rospy.Subscriber("move_base/TrajectoryPlannerROS/global_plan", Path)
-
         #-----KINECT HANDLERS---#
 
         #para simulador
@@ -98,7 +91,7 @@ class Turtlebot(object):
         #self.__depth_img = rospy.Subscriber('/camera/depth/image_raw',Image ,self.__depth_handler)
         #self.__rgb_img= rospy.Subscriber('/camera/rgb/image_raw',Image,self.__rgb_handler)
 
-    def move(self, linear=0.0, angular=0.0,tiempo = 2 ):
+    def move(self, linear=0.0, angular=0.0,tiempo = 2 ,tiempo_wait = 1):
         """Moves the robot at a given linear speed and angular velocity
         The speed is in meters per second and the angular velocity is in radians per second
         """
@@ -119,12 +112,52 @@ class Turtlebot(object):
         r = rospy.Rate(5) 
         # Announce and publish
         self.say("Moving ('{linear}' m/s, '{angular}' rad/s)...".format(linear=linear, angular=angular))
-        self.__cmd_vel_pub.publish(msg)
+        #self.__cmd_vel_pub.publish(msg)
         for x in range(0,tiempo):
             self.__cmd_vel_pub.publish(msg)
-            self.wait(1)
-            r.sleep()
+            self.wait(tiempo_wait)
+            #r.sleep()
         self.stop()
+
+    def move_odom(self, distance, angle, vel_dist = 1.0, vel_ang = 1.0):
+        r = rospy.Rate(1)
+        while not self.__have_odom and not rospy.is_shutdown():
+            self.say("Waiting for odometry")
+            r.sleep()
+
+        msg = Twist()
+        msg.linear.x = vel_dist
+        x0 = self.__x
+        y0 = self.__y
+
+        if angle >= 0:
+            msg.angular.z = np.abs(vel_ang)
+        else:
+            msg.angular.z = -np.abs(vel_ang)
+        angle0 = self.__cumulative_angle
+
+        #if angle == 0:
+        #    msg.angular.z = 0.0
+
+        r = rospy.Rate(100)
+        while not rospy.is_shutdown():
+            d = ((self.__x - x0)**2 + (self.__y - y0)**2)**0.5
+            a_diff = self.__cumulative_angle - angle0
+
+            if (d >= distance) and ((angle > 0 and a_diff >= angle) or (angle < 0 and a_diff <= angle)):
+                break
+
+            if (angle > 0 and a_diff >= angle) or (angle < 0 and a_diff <= angle):
+                msg.angular.z = 0.0
+            if (d >= distance):
+                msg.linear.x = 0.0
+
+            self.__cmd_vel_pub.publish(msg)
+            r.sleep()
+
+        msg.linear.x = 0.0
+        msg.angular.z = 0.0
+        self.__cmd_vel_pub.publish(msg)
 
     def move_distance(self, distance, velocity=1.0):
         """Moves a given distance in meters
@@ -305,53 +338,6 @@ class Turtlebot(object):
         #cv2.imshow('Video', frame)
         return gray
 
-    def puntoInicial(self, partida = True):
-        if partida:
-            self.initial_pose = PoseWithCovarianceStamped()
-
-            # Get the initial pose from the user
-            rospy.loginfo("*** Click the 2D Pose Estimate button in RViz to set the robot's initial pose...")
-            rospy.wait_for_message('initialpose', PoseWithCovarianceStamped)
-            #self.last_location = Pose()
-            #rospy.Subscriber('initialpose', PoseWithCovarianceStamped, self.update_initial_pose)
-
-            # Make sure we have the initial pose
-            #while self.initial_pose.header.stamp == "":
-            #    rospy.sleep(1)
-                    
-            rospy.loginfo("Starting navigation test")
-        else:
-            a = 1
-            #print "Colocar el punto donde llegue"
-
-    def takePoint(self, point = None, n_location = -1):
-        if n_location != -1:
-            locations = dict()
-        
-            locations['hall_foyer'] = Pose(Point(0.643, 4.720, 0.000), Quaternion(0.000, 0.000, 0.223, 0.975))
-            locations['hall_kitchen'] = Pose(Point(-1.994, 4.382, 0.000), Quaternion(0.000, 0.000, -0.670, 0.743))
-            locations['hall_bedroom'] = Pose(Point(-3.719, 4.401, 0.000), Quaternion(0.000, 0.000, 0.733, 0.680))
-            locations['living_room_1'] = Pose(Point(0.720, 2.229, 0.000), Quaternion(0.000, 0.000, 0.786, 0.618))
-            locations['living_room_2'] = Pose(Point(1.471, 1.007, 0.000), Quaternion(0.000, 0.000, 0.480, 0.877))
-            locations['dining_room_1'] = Pose(Point(-0.861, -0.019, 0.000), Quaternion(0.000, 0.000, 0.892, -0.451))
-
-            location = locations.keys()[n_location]
-            rospy.loginfo("Going to: " + str(location))
-        else:
-            print "Crear punto con la posicion que me entregan"
-
-        self.goal = MoveBaseGoal()
-        self.goal.target_pose.pose = locations[location]
-        self.goal.target_pose.header.frame_id = 'map'
-        self.goal.target_pose.header.stamp = rospy.Time.now()
-
-        self.move_base.send_goal(self.goal)
-
-        finished_within_time = self.move_base.wait_for_result(rospy.Duration(300)) 
-
-    def __initial_handler(self,msg):
-        self.initial_pose = msg.pose.pose
-
     def __odom_handler(self, msg):
         self.__x = msg.pose.pose.position.x
         self.__y = msg.pose.pose.position.y
@@ -370,19 +356,6 @@ class Turtlebot(object):
 
         self.__angle = a
         self.__have_odom = True
-
-    def __plan_handler(self, msg):
-        #if msg.poses[0].pose == self.plan[0]:
-        #    return 14
-
-        self.plan = []
-        #print msg.poses[0]
-        for point in msg.poses:
-            self.plan.append(point.pose)
-            #print point.pose.position
-
-        #print msg.poses[0].pose.position
-        #print msg.poses[0].pose.orientation
 
     def __scan_handler(self, msg):
         self.current_laser_msg = msg

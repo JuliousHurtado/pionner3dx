@@ -89,7 +89,7 @@ class NavTest():
         rospy.loginfo("Waiting for move_base action server...")
         
         # Wait 60 seconds for the action server to become available
-        #self.move_base.wait_for_server(rospy.Duration(60))
+        self.move_base.wait_for_server(rospy.Duration(60))
         
         rospy.loginfo("Connected to move base server")
         
@@ -104,7 +104,7 @@ class NavTest():
         
         # Get the initial pose from the user
         rospy.loginfo("*** Click the 2D Pose Estimate button in RViz to set the robot's initial pose...")
-        #rospy.wait_for_message('initialpose', PoseWithCovarianceStamped)
+        rospy.wait_for_message('initialpose', PoseWithCovarianceStamped)
         self.last_location = Pose()
         rospy.Subscriber('initialpose', PoseWithCovarianceStamped, self.update_initial_pose)
         
@@ -146,7 +146,7 @@ class NavTest():
             # Quizas no sea necesario esperar, si no que un sleep y ver si se logro y mandar altiro el otro
             
             print "Tiempo de dormir", tiempo_por_punto
-            #finished_within_time = self.move_base.wait_for_result(rospy.Duration(tiempo_por_punto+10))
+            finished_within_time = self.move_base.wait_for_result(rospy.Duration(tiempo_por_punto+10))
             #time.sleep(tiempo_por_punto)
 
             self.move_base.cancel_goal()

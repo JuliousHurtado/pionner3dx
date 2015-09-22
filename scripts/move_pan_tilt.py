@@ -40,10 +40,10 @@ class Pan_Tilt(object):
         global ang_mapa
         self.pose_robot = pose.pose
 
-        x = self.pose_robot.quaternion.x
-        y = self.pose_robot.quaternion.y
-        z = self.pose_robot.quaternion.z
-        w = self.pose_robot.quaternion.w
+        x = self.pose_robot.pose.orientation.x
+        y = self.pose_robot.pose.orientation.y
+        z = self.pose_robot.pose.orientation.z
+        w = self.pose_robot.pose.orientation.w
 
         q = Quat((x,y,z,w))
 
@@ -67,7 +67,7 @@ class Pan_Tilt(object):
         global ang_pan
         global ang_tilt
 
-        pantilt = Pantilt('/dev/ttyUSB0',9600) #Change port and baudrate
+        pantilt = Pantilt('/dev/ttyUSB2',9600) #Change port and baudrate
         pantilt.open()
 
         pan = ang_pan

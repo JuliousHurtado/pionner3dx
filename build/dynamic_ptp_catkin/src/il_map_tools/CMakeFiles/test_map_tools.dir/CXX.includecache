@@ -15,6 +15,22 @@ il_map_tools/srv_occupiedResponse.h
 -
 
 /home/champion/catkin_ws/devel/include/il_map_tools/srv_occupiedRequest.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+geometry_msgs/Pose.h
+-
 
 /home/champion/catkin_ws/devel/include/il_map_tools/srv_occupiedResponse.h
 string
