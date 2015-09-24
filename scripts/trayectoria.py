@@ -38,7 +38,7 @@ def get_plan():
 class Trayectoria(object):
 
     def __init__(self):
-        rospy.init_node('trayectoria', anonymous=True)
+        #rospy.init_node('trayectoria', anonymous=True)
         rospy.myargv(argv=sys.argv)
 
         #Real
@@ -50,11 +50,11 @@ class Trayectoria(object):
         self.tiempo_guard = [30,30,30,30,30,30,30,30,30,30]
         """
         #Oficina
-        self.x_guard = [-3.570,-3.590,-3.610,-3.6300,-3.648]
-        self.y_guard = [4.625,4.200,3.800,3.400,3.000]
-        self.pan_guard = [0,0,0,0,0]
-        self.tilt_guard = [0,0,0,0,0]
-        self.tiempo_guard = [10,10,10,10,10]
+        self.x_guard = [-3.590,-3.610,-3.6300,-3.648]
+        self.y_guard = [4.100,3.800,3.400,3.000]
+        self.pan_guard = [0,0,0,0]
+        self.tilt_guard = [0,0,0,0]
+        self.tiempo_guard = [10,10,10,10]
 
         self.camino = []
         self.local_plan = [] #list
@@ -67,7 +67,7 @@ class Trayectoria(object):
         self.self_point = False #pose
         self.cancel_goal = False
 
-        self.waypoints = None #list
+        self.waypoints = [] #list
 
         self.largoTrayectoria = len(self.x_guard)
 
@@ -106,38 +106,41 @@ class Trayectoria(object):
 
     def __plan_local_handler(self, data):
         self.local_plan = []
+        #print "There is a new Local Plan"
+        #self.camino = []
 
-        #Ver que puntos agregar, cuales dejar fuera, etc.
-
-        print "There is a new Local Plan"
-
-        self.contador_pos = 0
-        for point in data.poses:
-            #diff_x = abs(point.pose.position.x - self.local_plan[-1].position.x)
-            #diff_y = abs(point.pose.position.y - self.local_plan[-1].position.y)
-            #if diff_x > 0.01 and diff_y > 0.01:
-            self.local_plan.append(point.pose)
+        cont = 0
         """
         for point in data.poses:
-            if self.local_plan is None or len(self.local_plan) == 0:
-                self.local_plan.append(point.pose)
+            self.camino.append(point.pose)
+
+        """
+        camino_anterior = self.camino[:]
+        while len(self.camino) <= 10 and cont < len(data.poses):
+            agregar_camino = True
+            point = data.poses[cont]
+            q1 = Quat((point.pose.orientation.x,point.pose.orientation.y,point.pose.orientation.z,point.pose.orientation.w))
+            if len(self.camino) < 3:
+                self.camino.append(point.pose)
             else:
-                agregar = True
-                q1 = Quat((point.pose.orientation.x,point.pose.orientation.y,point.pose.orientation.z,point.pose.orientation.w))
-                for local in self.local_plan:
-                    q2 = Quat((local.orientation.x,local.orientation.y,local.orientation.z,local.orientation.w))
-                    diff_x = abs(point.pose.position.x - local.position.x)
-                    diff_y = abs(point.pose.position.y - local.position.y)
-                    diff_ang = abs(radians(q1.ra) - radians(q2.ra))
-                    if diff_x < 0.1 and diff_y < 0.1 and diff_ang < 0.2:
-                        agregar = False
+                for cam in camino_anterior:
+                    q2 = Quat((cam.orientation.x,cam.orientation.y,cam.orientation.z,cam.orientation.w))
+                    diff_ang = abs((q1.ra) - (q2.ra))
+                    diff_x = abs(point.pose.position.x - cam.position.x)
+                    diff_y = abs(point.pose.position.y - cam.position.y)
+
+                    d = ((diff_x)**2 + (diff_y)**2)**0.5
+
+                    if d > 0.05 or diff_ang > 5:
+                        agregar_camino = False
                         break
-                if agregar:
-                    self.local_plan.append(point.pose)
+                if agregar_camino:
+                    self.camino.append(point.pose)
+            cont += 1
+        
 
-        """
-        print "Largo del recorrido local: ",len(self.local_plan)
-
+        #print self.camino
+        #print "Largo del recorrido local: ",len(self.local_plan)
 
     def __plan_global_handler(self, data):
         self.global_plan = []
@@ -145,7 +148,7 @@ class Trayectoria(object):
         for point in data.poses:
             self.global_plan.append(point.pose)
 
-        print "Largo del recorrido Global: ",len(self.global_plan)
+        #print "Largo del recorrido Global: ",len(self.global_plan)
 
     def __amcl_pose_handler(self, data):
         self.actual_position = data.pose.pose
@@ -178,6 +181,7 @@ class Trayectoria(object):
         self.set_goal(location)
 
     def set_goal(self, location):
+        print "There is a new goal"
         self.goal = location
 
         goal = MoveBaseGoal()
@@ -204,10 +208,33 @@ class Trayectoria(object):
         else:
             return False
 
-    def cancel_goal(self):
+    #Si algun punto del camino llega al goal
+    def reachGoalCamino(self):
+        q2 = Quat((self.goal.orientation.x,self.goal.orientation.y,self.goal.orientation.z,self.goal.orientation.w))
+
+        for point in self.camino[:10]:
+            q1 = Quat((point.orientation.x,point.orientation.y,point.orientation.z,point.orientation.w))
+
+            diff_ang = abs(radians(q1.ra) - radians(q2.ra))
+            diff_x = abs(self.goal.position.x - point.position.x)
+            diff_y = abs(self.goal.position.y - point.position.y)
+
+            if diff_x < 0.2 and diff_y < 0.2 and diff_ang < 0.2:
+                print "Goal Reached :D!"
+                return True
+        return False
+
+    def goalDireccition(self):
+        q1 = Quat((self.actual_position.orientation.x,self.actual_position.orientation.y,self.actual_position.orientation.z,self.actual_position.orientation.w))
+        q2 = Quat((self.goal.orientation.x,self.goal.orientation.y,self.goal.orientation.z,self.goal.orientation.w))
+
+        diff_ang = abs(radians(q1.ra) - radians(q2.ra))
+
+        return diff_ang
+
+    def cancel_goal_func(self):
         self.move_base.cancel_goal()
         self.camino = []
-
 
     def selfPoint(self):
         first = self.waypoints.pop(0)
@@ -225,3 +252,6 @@ class Trayectoria(object):
             self.waypoints.append(point.x,point.y,point.tiempo)
 
         self.self_point = True
+
+    def renovarCamino(self):
+        self.camino = []

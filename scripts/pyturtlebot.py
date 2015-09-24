@@ -136,24 +136,25 @@ class Turtlebot(object):
             msg.angular.z = -np.abs(vel_ang)
         angle0 = self.__cumulative_angle
 
-        #if angle == 0:
-        #    msg.angular.z = 0.0
-
         r = rospy.Rate(100)
         while not rospy.is_shutdown():
             d = ((self.__x - x0)**2 + (self.__y - y0)**2)**0.5
             a_diff = self.__cumulative_angle - angle0
 
-            if (d >= distance) and ((angle > 0 and a_diff >= angle) or (angle < 0 and a_diff <= angle)):
+            if (d >= distance) and ((angle >= 0 and a_diff >= angle) or (angle <= 0 and a_diff <= angle)):
                 break
 
-            if (angle > 0 and a_diff >= angle) or (angle < 0 and a_diff <= angle):
+            if (angle >= 0 and a_diff >= angle) or (angle <= 0 and a_diff <= angle):
                 msg.angular.z = 0.0
             if (d >= distance):
                 msg.linear.x = 0.0
 
             self.__cmd_vel_pub.publish(msg)
             r.sleep()
+            #print msg.angular.z
+            #print msg.linear.x
+            #print "Hola"
+            #self.wait(0.02)
 
         msg.linear.x = 0.0
         msg.angular.z = 0.0
@@ -268,7 +269,7 @@ class Turtlebot(object):
 
     def wait(self, seconds):
         """This function will wait for a given number of seconds before returning"""
-        self.say("Waiting for '{0}' seconds.".format(seconds))
+        #self.say("Waiting for '{0}' seconds.".format(seconds))
         time.sleep(seconds)
 
     def say(self, msg):
@@ -365,6 +366,8 @@ class Turtlebot(object):
 
         for i in range(self.max_seg):
             self.mean_range[i] = np.mean(r[self.grados_sep*i:self.grados_sep*(i+1)])
+
+        rospy.sleep(1)
 
         #print self.mean_range
         #print "Min", msg.range_min
