@@ -13,7 +13,7 @@
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
     <param name="controller_frequency" value="0.5" />
     <!-- <param name="base_global_planner" value="carrot_planner/CarrotPlanner"/> -->
-    <!-- <remap from="/cmd_vel" to="/RosAria/cmd_vel" /> -->
+    <remap from="/cmd_vel" to="/RosAria/cmd_vel" />
     <remap from="/odom" to="/RosAria/pose" />
 
     <param name="oscillation_timeout" value="0.0" />

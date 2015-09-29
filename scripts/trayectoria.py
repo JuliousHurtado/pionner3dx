@@ -56,6 +56,10 @@ class Trayectoria(object):
         self.tilt_guard = [0,0,0,0]
         self.tiempo_guard = [10,10,10,10]
 
+        self.x_act = None
+        self.y_act = None
+        self.ang_act = None
+
         self.camino = []
         self.local_plan = [] #list
         self.global_plan = None #list
@@ -113,7 +117,6 @@ class Trayectoria(object):
         """
         for point in data.poses:
             self.camino.append(point.pose)
-
         """
         camino_anterior = self.camino[:]
         while len(self.camino) <= 10 and cont < len(data.poses):
@@ -152,6 +155,11 @@ class Trayectoria(object):
 
     def __amcl_pose_handler(self, data):
         self.actual_position = data.pose.pose
+
+        self.x_act = self.actual_position.position.x
+        self.y_act = self.actual_position.position.y
+        self.ang_act = Quat((self.actual_position.orientation.x,self.actual_position.orientation.y,\
+                            self.actual_position.orientation.z,self.actual_position.orientation.w))
 
     def shutdown(self):
         rospy.loginfo("Stopping the robot...")
@@ -194,15 +202,14 @@ class Trayectoria(object):
         #finished_within_time = self.move_base.wait_for_result(rospy.Duration(300)) 
 
     def reachGoal(self):
-
-        q1 = Quat((self.actual_position.orientation.x,self.actual_position.orientation.y,self.actual_position.orientation.z,self.actual_position.orientation.w))
+        q1 = self.ang_act
         q2 = Quat((self.goal.orientation.x,self.goal.orientation.y,self.goal.orientation.z,self.goal.orientation.w))
 
         diff_ang = abs(radians(q1.ra) - radians(q2.ra))
-        diff_x = abs(self.goal.position.x - self.actual_position.position.x)
-        diff_y = abs(self.goal.position.y - self.actual_position.position.y)
+        diff_x = abs(self.goal.position.x - self.x_act)
+        diff_y = abs(self.goal.position.y - self.y_act)
 
-        if diff_x < 0.2 and diff_y < 0.2 and diff_ang < 0.2:
+        if diff_x < 0.4 and diff_y < 0.4 and diff_ang < 0.3:
             print "Goal Reached :D!"
             return True
         else:
@@ -219,13 +226,13 @@ class Trayectoria(object):
             diff_x = abs(self.goal.position.x - point.position.x)
             diff_y = abs(self.goal.position.y - point.position.y)
 
-            if diff_x < 0.2 and diff_y < 0.2 and diff_ang < 0.2:
+            if diff_x < 0.4 and diff_y < 0.4 and diff_ang < 0.3:
                 print "Goal Reached :D!"
                 return True
         return False
 
     def goalDireccition(self):
-        q1 = Quat((self.actual_position.orientation.x,self.actual_position.orientation.y,self.actual_position.orientation.z,self.actual_position.orientation.w))
+        q1 = self.ang_act
         q2 = Quat((self.goal.orientation.x,self.goal.orientation.y,self.goal.orientation.z,self.goal.orientation.w))
 
         diff_ang = abs(radians(q1.ra) - radians(q2.ra))

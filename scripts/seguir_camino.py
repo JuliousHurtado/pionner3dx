@@ -23,7 +23,7 @@ def
 return
     Devuelve True en caso de que se pueda avanzar y False en caso de que no.
 """
-def verificarAvanzarCamino(robot,trayectoria):
+def verificarAvanzarCamino(robot,trayectoria = None):
     for i in range(robot.max_seg-1):
         tramo = robot.laser_range[robot.grados_sep*i:robot.grados_sep*(i+1)]
         #Verificar estos valores
@@ -95,18 +95,25 @@ params
     pose2: Es la posicion que se queire llegar
     robot: es la clase encargada de todo lo que es el robot, moviemiento y laser.
 """
-def moverRobot(pose1,pose2,robot):
+def moverRobot(trayectoria, pose1,pose2,robot, x1 = 0, y1 = 0, ang1 = 0):
     #print pose1
     #print pose2
     #robot.wait(10)
-    q1 = Quat((pose1.orientation.x,pose1.orientation.y,pose1.orientation.z,pose1.orientation.w))
-    q2 = Quat((pose2.orientation.x,pose2.orientation.y,pose2.orientation.z,pose2.orientation.w))
+    if pose1 is None:
+        q2 = Quat((pose2.orientation.x,pose2.orientation.y,pose2.orientation.z,pose2.orientation.w))
+        ang = arreglarAngulo(q2.ra - ang1.ra)
 
-    ang = arreglarAngulo(q2.ra - q1.ra)
+        dist = sqrt( (x1 - pose2.position.x)**2 + (y1 - pose2.position.y)**2 )
+
+    else:
+        q1 = Quat((pose1.orientation.x,pose1.orientation.y,pose1.orientation.z,pose1.orientation.w))
+        q2 = Quat((pose2.orientation.x,pose2.orientation.y,pose2.orientation.z,pose2.orientation.w))
+
+        ang = arreglarAngulo(q2.ra - q1.ra)
+        dist = sqrt( (pose1.position.x - pose2.position.x)**2 + (pose1.position.y - pose2.position.y)**2 )
+
     print "Angulo:",ang
     #robot.turn_angle(ang,1)
-
-    dist = sqrt( (pose1.position.x - pose2.position.x)**2 + (pose1.position.y - pose2.position.y)**2 )
     print "Distancia:",dist
     #robot.move_distance(dist,1.0)
 
@@ -136,7 +143,7 @@ def moverRobot(pose1,pose2,robot):
         if ang <= sum_ang:
             cant_ang = 0.0
 
-        if verificarAvanzarCamino(robot):
+        if verificarAvanzarCamino(robot,trayectoria):
             if ang_negativo:
                 robot.move_odom(cant_dist,cant_ang*-1,0.05,0.2)
             else:
@@ -190,9 +197,20 @@ if __name__ == '__main__':
                     ang_to_goal = arreglarAngulo(trayectoria.goalDireccition())
                     robot.turn_angle(ang_to_goal)
 
-                if verificarAvanzarCamino(robot):
-                    punto = trayectoria.camino.pop(0)
-                    moverRobot(punto,trayectoria.camino[0],robot)
+                if verificarAvanzarCamino(robot,trayectoria):
+                    if trayectoria.x_act is None:
+                        punto = trayectoria.camino.pop(0)
+                        moverRobot(trayectoria, punto,trayectoria.camino[0],robot)
+                        punto = trayectoria.camino[0]
+                        trayectoria.x_act = punto.position.x
+                        trayectoria.y_act = punto.position.y
+                        trayectoria.ang_act = Quat((punto.orientation.x,punto.orientation.y,punto.orientation.z,punto.orientation.w))
+                    else:
+                        punto = trayectoria.camino.pop(0)
+                        moverRobot(trayectoria, None,punto,robot, trayectoria.x_act, trayectoria.y_act, trayectoria.ang_act)
+                        trayectoria.x_act = punto.position.x
+                        trayectoria.y_act = punto.position.y
+                        trayectoria.ang_act = Quat((punto.orientation.x,punto.orientation.y,punto.orientation.z,punto.orientation.w))
 
                 if trayectoria.reachGoalCamino():
                     punto_guardian = agregarGoal(guardian,punto_guardian,trayectoria,ida)
@@ -211,6 +229,9 @@ if __name__ == '__main__':
                guardian = False
                #Quizas reiniciar el camino
                robot.stop()
+
+            if trayectoria.reachGoal():
+                punto_guardian = agregarGoal(guardian,punto_guardian,trayectoria,ida)
 
             if len(trayectoria.waypoints) == 0:
                 guardian = True
