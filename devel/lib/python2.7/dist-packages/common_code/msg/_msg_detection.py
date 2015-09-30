@@ -7,7 +7,7 @@ import struct
 import std_msgs.msg
 
 class msg_detection(genpy.Message):
-  _md5sum = "e377bdbe3c001f0f670ed6de22af24ee"
+  _md5sum = "31755591cda67b5d07259fb33c656b42"
   _type = "common_code/msg_detection"
   _has_header = True #flag to mark the presence of a Header object
   _full_text = """Header header
@@ -20,6 +20,7 @@ float64 robot_orient
 float64 pan_orient
 int16 n_type
 float64[] scores
+float64 det_score
 
 ================================================================================
 MSG: std_msgs/Header
@@ -40,8 +41,8 @@ time stamp
 string frame_id
 
 """
-  __slots__ = ['header','delta_x','timestamp','obj_x_y','obj_orient','robot_x_y','robot_orient','pan_orient','n_type','scores']
-  _slot_types = ['std_msgs/Header','float64','float64','float64[2]','float64','float64[2]','float64','float64','int16','float64[]']
+  __slots__ = ['header','delta_x','timestamp','obj_x_y','obj_orient','robot_x_y','robot_orient','pan_orient','n_type','scores','det_score']
+  _slot_types = ['std_msgs/Header','float64','float64','float64[2]','float64','float64[2]','float64','float64','int16','float64[]','float64']
 
   def __init__(self, *args, **kwds):
     """
@@ -51,7 +52,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,delta_x,timestamp,obj_x_y,obj_orient,robot_x_y,robot_orient,pan_orient,n_type,scores
+       header,delta_x,timestamp,obj_x_y,obj_orient,robot_x_y,robot_orient,pan_orient,n_type,scores,det_score
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -80,6 +81,8 @@ string frame_id
         self.n_type = 0
       if self.scores is None:
         self.scores = []
+      if self.det_score is None:
+        self.det_score = 0.
     else:
       self.header = std_msgs.msg.Header()
       self.delta_x = 0.
@@ -91,6 +94,7 @@ string frame_id
       self.pan_orient = 0.
       self.n_type = 0
       self.scores = []
+      self.det_score = 0.
 
   def _get_types(self):
     """
@@ -126,6 +130,7 @@ string frame_id
       buff.write(_struct_I.pack(length))
       pattern = '<%sd'%length
       buff.write(struct.pack(pattern, *self.scores))
+      buff.write(_struct_d.pack(self.det_score))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
 
@@ -175,6 +180,9 @@ string frame_id
       start = end
       end += struct.calcsize(pattern)
       self.scores = struct.unpack(pattern, str[start:end])
+      start = end
+      end += 8
+      (self.det_score,) = _struct_d.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -209,6 +217,7 @@ string frame_id
       buff.write(_struct_I.pack(length))
       pattern = '<%sd'%length
       buff.write(self.scores.tostring())
+      buff.write(_struct_d.pack(self.det_score))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
 
@@ -259,6 +268,9 @@ string frame_id
       start = end
       end += struct.calcsize(pattern)
       self.scores = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
+      start = end
+      end += 8
+      (self.det_score,) = _struct_d.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill

@@ -19,4 +19,6 @@
           N_TYPE
           SCORES-VAL
           SCORES
+          DET_SCORE-VAL
+          DET_SCORE
 ))

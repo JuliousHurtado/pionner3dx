@@ -34,7 +34,8 @@ struct msg_detection_
     , robot_orient(0.0)
     , pan_orient(0.0)
     , n_type(0)
-    , scores()  {
+    , scores()
+    , det_score(0.0)  {
       obj_x_y.assign(0.0);
 
       robot_x_y.assign(0.0);
@@ -49,7 +50,8 @@ struct msg_detection_
     , robot_orient(0.0)
     , pan_orient(0.0)
     , n_type(0)
-    , scores(_alloc)  {
+    , scores(_alloc)
+    , det_score(0.0)  {
       obj_x_y.assign(0.0);
 
       robot_x_y.assign(0.0);
@@ -86,6 +88,9 @@ struct msg_detection_
 
    typedef std::vector<double, typename ContainerAllocator::template rebind<double>::other >  _scores_type;
   _scores_type scores;
+
+   typedef double _det_score_type;
+  _det_score_type det_score;
 
 
 
@@ -164,12 +169,12 @@ struct MD5Sum< ::common_code::msg_detection_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "e377bdbe3c001f0f670ed6de22af24ee";
+    return "31755591cda67b5d07259fb33c656b42";
   }
 
   static const char* value(const ::common_code::msg_detection_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xe377bdbe3c001f0fULL;
-  static const uint64_t static_value2 = 0x670ed6de22af24eeULL;
+  static const uint64_t static_value1 = 0x31755591cda67b5dULL;
+  static const uint64_t static_value2 = 0x07259fb33c656b42ULL;
 };
 
 template<class ContainerAllocator>
@@ -198,6 +203,7 @@ float64 robot_orient\n\
 float64 pan_orient\n\
 int16 n_type\n\
 float64[] scores\n\
+float64 det_score\n\
 \n\
 ================================================================================\n\
 MSG: std_msgs/Header\n\
@@ -244,6 +250,7 @@ namespace serialization
       stream.next(m.pan_orient);
       stream.next(m.n_type);
       stream.next(m.scores);
+      stream.next(m.det_score);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER;
@@ -295,6 +302,8 @@ struct Printer< ::common_code::msg_detection_<ContainerAllocator> >
       s << indent << "  scores[" << i << "]: ";
       Printer<double>::stream(s, indent + "  ", v.scores[i]);
     }
+    s << indent << "det_score: ";
+    Printer<double>::stream(s, indent + "  ", v.det_score);
   }
 };
 

@@ -24,6 +24,7 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
+  "/usr/include/opencv"
   "/home/champion/catkin_ws/devel/include"
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/common_code/include"
   "/home/champion/catkin_ws/src/dynamic_ptp_catkin/src/newmat/include"
