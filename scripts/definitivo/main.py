@@ -44,10 +44,10 @@ def agregarGoal(punto_guardian,trayectoria,ida):
         pose = Pose(Point(pose1.position.x,pose1.position.y,pose1.position.z), Quaternion(q.q[0], q.q[1], q.q[2], q.q[3]))
 
     else:
-        trayectoria.selfPoint()
+        pose = trayectoria.selfPoint()
         punto_guardian = 0
 
-    print pose
+    #print pose
     trayectoria.setGoal(pose)
     return punto_guardian
 

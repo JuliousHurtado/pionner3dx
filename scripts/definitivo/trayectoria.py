@@ -36,6 +36,8 @@ class Trayectoria(object):
         self.goal_bool = False
         self.pose_goal = None
 
+        self.actual_position = None
+
         self.interrumpir = False
 
         self.waypoints = []
@@ -115,11 +117,21 @@ class Trayectoria(object):
         q = Quat((ang_pos_final,0,0))
 
         location = Pose(Point(first[0],first[1],0),Quaternion(q.q[0], q.q[1], q.q[2], q.q[3]))
-        self.setGoal(location)
+
+        if len(self.waypoints) == 1:
+            self.guardian = True
+
+        return location
 
     def chatter_handler(self,data):
         self.waypoints = []
+        print "Arrive new points"
+        print self.actual_position
         for point in data.punto:
+            print point.x
+            print point.y
             self.waypoints.append(point.x,point.y,point.tiempo)
 
         self.self_point = True
+        self.guardian = False
+        self.interrumpir = True
