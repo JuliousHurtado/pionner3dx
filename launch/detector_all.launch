@@ -1,0 +1,9 @@
+<launch>
+
+  <include file="src/skeleton_tracker/launch/tracker.launch" />
+  <node name="face_detector" pkg="face_detector" type="face_detector" />
+  <!--
+  <node name="dynamic_ptp" pkg="dynamic_ptp" type="dynamic_ptp" args="real" />
+  -->
+
+</launch>

@@ -1,9 +1,8 @@
 digraph G {
-"map" -> "odom"[label="Broadcaster: /amcl\nAverage rate: 9.576 Hz\nMost recent transform: 1441815477.451 ( 0.014 sec old)\nBuffer length: 4.908 sec\n"];
-"base_link" -> "laser"[label="Broadcaster: /base_link_to_laser\nAverage rate: 10.189 Hz\nMost recent transform: 1441815477.551 ( -0.086 sec old)\nBuffer length: 4.907 sec\n"];
-"odom" -> "base_link"[label="Broadcaster: /RosAria\nAverage rate: 10.307 Hz\nMost recent transform: 1441815477.371 ( 0.095 sec old)\nBuffer length: 4.754 sec\n"];
+"world" -> "tracker_depth_frame"[label="Broadcaster: /top_plate_to_tracker\nAverage rate: 10.196 Hz\nMost recent transform: 1444760818.917 ( -0.032 sec old)\nBuffer length: 4.806 sec\n"];
+"tracker_depth_frame" -> "camera_frame"[label="Broadcaster: /depth_toObjRecog\nAverage rate: 10.195 Hz\nMost recent transform: 1444760818.917 ( -0.033 sec old)\nBuffer length: 4.806 sec\n"];
 edge [style=invis];
  subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
-"Recorded at time: 1441815477.465"[ shape=plaintext ] ;
- }->"map";
+"Recorded at time: 1444760818.885"[ shape=plaintext ] ;
+ }->"world";
 }

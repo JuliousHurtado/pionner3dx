@@ -3,6 +3,7 @@
 from math import sqrt, atan, degrees,radians, pi
 from Quaternion import Quat
 from threading import Thread
+import time
 
 from trayectoria import get_moving
 from pyturtlebot import get_robot
@@ -18,8 +19,8 @@ def findOrientation(pose1,pose2):
 
     ang_pos_final = degrees(atan(float(abs(pose2.position.y-pose1.position.y))/float(abs(pose2.position.x-pose1.position.x))))
 
-    if pose2.position.x < pose1.position.x:
-        ang_pos_final = ang_pos_final*-1
+    #if pose2.position.x < pose1.position.x:
+    #    ang_pos_final = ang_pos_final*-1
 
     q = Quat((ang_pos_final,0,0))
 
@@ -47,7 +48,7 @@ def agregarGoal(punto_guardian,trayectoria,ida):
         pose = trayectoria.selfPoint()
         punto_guardian = 0
 
-    #print pose
+    print pose
     trayectoria.setGoal(pose)
     return punto_guardian
 
@@ -62,21 +63,27 @@ def move():
 
     while not rospy.is_shutdown():
         if trayectoria.goal_bool:
-            for i in range(60):
+            for i in range(200):
                 cont = 1
                 success = trayectoria.move_base.wait_for_result(rospy.Duration(cont))
+                #robot.wait(1)
 
                 #Verificar si esta cerca y en linea recta, para que se ponga otro goal y se avance "manual"
                 diff_x,diff_y,diff_ang = trayectoria.checkProximityGoal()
 
-                if diff_x < 0.2 and diff_y < 0.2:
+                if diff_x < 0.3 and diff_y < 0.3:
                     t1 = Thread(target=robot.moveManualRobot(diff_x,diff_y,diff_ang)) #ang_pan_tilt[0],ang_pan_tilt[1]
                     t1.start()
+                    time.sleep(2)
                     break
 
-                if trayectoria.interrumpir:
-                    trayectoria.interrumpir = False
-                    break
+                #if trayectoria.interrumpir:
+                #    trayectoria.interrumpir = False
+                #    break
+                #Comentado porque caminos envia constantemente puntos y se interrumpe mucho.
+                #Ver si hay alguna forma de que caminos no envie tanto
+                #Por el momento llega hasta el goal para despues buscar otro goal
+                #No se si para en algun momento de tratar de detectar a la persona
 
                 if success:
                     print "break"
@@ -106,7 +113,6 @@ def move():
 
 if __name__ == '__main__':
     try:
-        
         move()
     except rospy.ROSInterruptException:
         rospy.loginfo("Exception thrown")

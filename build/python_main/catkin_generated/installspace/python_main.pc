@@ -1,0 +1,8 @@
+prefix=/home/champion/catkin_ws/install
+
+Name: python_main
+Description: Description of python_main
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/champion/catkin_ws/install/lib -lpython_main
+Requires: roscpp rospy std_msgs

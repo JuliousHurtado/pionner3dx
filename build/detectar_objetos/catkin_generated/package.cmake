@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "detectar_objetos")
+set(detectar_objetos_MAINTAINER "champion <champion@todo.todo>")
+set(detectar_objetos_DEPRECATED "")
+set(detectar_objetos_VERSION "0.0.0")
+set(detectar_objetos_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
+set(detectar_objetos_RUN_DEPENDS "roscpp" "rospy" "std_msgs")
+set(detectar_objetos_BUILDTOOL_DEPENDS "catkin")

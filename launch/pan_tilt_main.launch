@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="pan_tilt" pkg="python_main" type="move_pan_tilt.py" />
+  <node name="main" pkg="python_main" type="main.py" />
+
+</launch>

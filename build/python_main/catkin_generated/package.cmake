@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "python_main")
+set(python_main_MAINTAINER "champion <champion@todo.todo>")
+set(python_main_DEPRECATED "")
+set(python_main_VERSION "0.0.0")
+set(python_main_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
+set(python_main_RUN_DEPENDS "roscpp" "rospy" "std_msgs")
+set(python_main_BUILDTOOL_DEPENDS "catkin")

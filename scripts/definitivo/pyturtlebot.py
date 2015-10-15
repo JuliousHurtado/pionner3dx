@@ -93,7 +93,8 @@ class Turtlebot(object):
 
     def moveManualRobot(self,diff_x,diff_y,diff_ang):
         print "Diferencia del angulo:",diff_ang
-        self.turn_angle(radians(diff_ang), velocity=0.5)
+        self.turn_angle(radians(diff_ang), velocity=0.4)
+        #self.move_distance((diff_x**2 + diff_y**2)**0.5, 0.3 )
 
         #dist = ((diff_x)**2 + (diff_y)**2)**0.5
         #msg = Twist()
