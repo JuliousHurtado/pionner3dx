@@ -1,5 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/messages_generate_messages_lisp"
+  "/home/champion/catkin_ws/devel/share/common-lisp/ros/messages/msg/Orientacion.lisp"
   "/home/champion/catkin_ws/devel/share/common-lisp/ros/messages/msg/Pan_tilt_mess.lisp"
   "/home/champion/catkin_ws/devel/share/common-lisp/ros/messages/msg/Punto.lisp"
   "/home/champion/catkin_ws/devel/share/common-lisp/ros/messages/msg/Camino.lisp"

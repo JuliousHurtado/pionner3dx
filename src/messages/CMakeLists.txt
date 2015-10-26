@@ -47,6 +47,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate messages in the 'msg' folder
  add_message_files(
    FILES
+   Orientacion.msg
    Camino.msg
    Punto.msg
    Pan_tilt_mess.msg

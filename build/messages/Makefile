@@ -178,6 +178,20 @@ _messages_generate_messages_check_deps_Camino/fast:
 .PHONY : _messages_generate_messages_check_deps_Camino/fast
 
 # Convenience name for target.
+messages/CMakeFiles/_messages_generate_messages_check_deps_Orientacion.dir/rule:
+	cd /home/champion/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 messages/CMakeFiles/_messages_generate_messages_check_deps_Orientacion.dir/rule
+.PHONY : messages/CMakeFiles/_messages_generate_messages_check_deps_Orientacion.dir/rule
+
+# Convenience name for target.
+_messages_generate_messages_check_deps_Orientacion: messages/CMakeFiles/_messages_generate_messages_check_deps_Orientacion.dir/rule
+.PHONY : _messages_generate_messages_check_deps_Orientacion
+
+# fast build rule for target.
+_messages_generate_messages_check_deps_Orientacion/fast:
+	cd /home/champion/catkin_ws/build && $(MAKE) -f messages/CMakeFiles/_messages_generate_messages_check_deps_Orientacion.dir/build.make messages/CMakeFiles/_messages_generate_messages_check_deps_Orientacion.dir/build
+.PHONY : _messages_generate_messages_check_deps_Orientacion/fast
+
+# Convenience name for target.
 messages/CMakeFiles/_messages_generate_messages_check_deps_Pan_tilt.dir/rule:
 	cd /home/champion/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 messages/CMakeFiles/_messages_generate_messages_check_deps_Pan_tilt.dir/rule
 .PHONY : messages/CMakeFiles/_messages_generate_messages_check_deps_Pan_tilt.dir/rule
@@ -325,6 +339,7 @@ help:
 	@echo "... depend"
 	@echo "... _messages_generate_messages_check_deps_AddTwoInts"
 	@echo "... _messages_generate_messages_check_deps_Camino"
+	@echo "... _messages_generate_messages_check_deps_Orientacion"
 	@echo "... _messages_generate_messages_check_deps_Pan_tilt"
 	@echo "... _messages_generate_messages_check_deps_Pan_tilt_mess"
 	@echo "... _messages_generate_messages_check_deps_Punto"

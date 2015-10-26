@@ -27,12 +27,14 @@ struct Pan_tilt_mess_
   Pan_tilt_mess_()
     : header()
     , pan(0.0)
-    , tilt(0.0)  {
+    , tilt(0.0)
+    , reset(0.0)  {
     }
   Pan_tilt_mess_(const ContainerAllocator& _alloc)
     : header(_alloc)
     , pan(0.0)
-    , tilt(0.0)  {
+    , tilt(0.0)
+    , reset(0.0)  {
     }
 
 
@@ -45,6 +47,9 @@ struct Pan_tilt_mess_
 
    typedef double _tilt_type;
   _tilt_type tilt;
+
+   typedef double _reset_type;
+  _reset_type reset;
 
 
 
@@ -123,12 +128,12 @@ struct MD5Sum< ::messages::Pan_tilt_mess_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "919b8e9b18fec5e324500406fde49f2b";
+    return "47917ba31d6b7aec5f5b8d76df4ddbcd";
   }
 
   static const char* value(const ::messages::Pan_tilt_mess_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x919b8e9b18fec5e3ULL;
-  static const uint64_t static_value2 = 0x24500406fde49f2bULL;
+  static const uint64_t static_value1 = 0x47917ba31d6b7aecULL;
+  static const uint64_t static_value2 = 0x5f5b8d76df4ddbcdULL;
 };
 
 template<class ContainerAllocator>
@@ -150,6 +155,7 @@ struct Definition< ::messages::Pan_tilt_mess_<ContainerAllocator> >
     return "Header header\n\
 float64 pan\n\
 float64 tilt\n\
+float64 reset\n\
 ================================================================================\n\
 MSG: std_msgs/Header\n\
 # Standard metadata for higher-level stamped data types.\n\
@@ -188,6 +194,7 @@ namespace serialization
       stream.next(m.header);
       stream.next(m.pan);
       stream.next(m.tilt);
+      stream.next(m.reset);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER;
@@ -213,6 +220,8 @@ struct Printer< ::messages::Pan_tilt_mess_<ContainerAllocator> >
     Printer<double>::stream(s, indent + "  ", v.pan);
     s << indent << "tilt: ";
     Printer<double>::stream(s, indent + "  ", v.tilt);
+    s << indent << "reset: ";
+    Printer<double>::stream(s, indent + "  ", v.reset);
   }
 };
 

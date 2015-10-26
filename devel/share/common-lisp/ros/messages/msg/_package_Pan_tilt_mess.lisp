@@ -5,4 +5,6 @@
           PAN
           TILT-VAL
           TILT
+          RESET-VAL
+          RESET
 ))

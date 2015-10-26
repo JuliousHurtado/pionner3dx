@@ -45,6 +45,7 @@ CMAKE_BINARY_DIR = /home/champion/catkin_ws/build
 # Include the progress variables for this target.
 include messages/CMakeFiles/messages_generate_messages_py.dir/progress.make
 
+messages/CMakeFiles/messages_generate_messages_py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Orientacion.py
 messages/CMakeFiles/messages_generate_messages_py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Pan_tilt_mess.py
 messages/CMakeFiles/messages_generate_messages_py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Punto.py
 messages/CMakeFiles/messages_generate_messages_py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Camino.py
@@ -53,17 +54,24 @@ messages/CMakeFiles/messages_generate_messages_py: /home/champion/catkin_ws/deve
 messages/CMakeFiles/messages_generate_messages_py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/__init__.py
 messages/CMakeFiles/messages_generate_messages_py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/__init__.py
 
+/home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Orientacion.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
+/home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Orientacion.py: /home/champion/catkin_ws/src/messages/msg/Orientacion.msg
+/home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Orientacion.py: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python from MSG messages/Orientacion"
+	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/champion/catkin_ws/src/messages/msg/Orientacion.msg -Imessages:/home/champion/catkin_ws/src/messages/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p messages -o /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg
+
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Pan_tilt_mess.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Pan_tilt_mess.py: /home/champion/catkin_ws/src/messages/msg/Pan_tilt_mess.msg
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Pan_tilt_mess.py: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python from MSG messages/Pan_tilt_mess"
 	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/champion/catkin_ws/src/messages/msg/Pan_tilt_mess.msg -Imessages:/home/champion/catkin_ws/src/messages/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p messages -o /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg
 
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Punto.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Punto.py: /home/champion/catkin_ws/src/messages/msg/Punto.msg
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Punto.py: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python from MSG messages/Punto"
 	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/champion/catkin_ws/src/messages/msg/Punto.msg -Imessages:/home/champion/catkin_ws/src/messages/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p messages -o /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg
 
@@ -71,43 +79,46 @@ messages/CMakeFiles/messages_generate_messages_py: /home/champion/catkin_ws/deve
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Camino.py: /home/champion/catkin_ws/src/messages/msg/Camino.msg
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Camino.py: /home/champion/catkin_ws/src/messages/msg/Punto.msg
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Camino.py: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python from MSG messages/Camino"
 	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/champion/catkin_ws/src/messages/msg/Camino.msg -Imessages:/home/champion/catkin_ws/src/messages/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p messages -o /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg
 
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/_AddTwoInts.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/_AddTwoInts.py: /home/champion/catkin_ws/src/messages/srv/AddTwoInts.srv
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV messages/AddTwoInts"
 	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/champion/catkin_ws/src/messages/srv/AddTwoInts.srv -Imessages:/home/champion/catkin_ws/src/messages/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p messages -o /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv
 
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/_Pan_tilt.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/_Pan_tilt.py: /home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV messages/Pan_tilt"
 	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/champion/catkin_ws/src/messages/srv/Pan_tilt.srv -Imessages:/home/champion/catkin_ws/src/messages/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p messages -o /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv
 
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/__init__.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
+/home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/__init__.py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Orientacion.py
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/__init__.py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Pan_tilt_mess.py
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/__init__.py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Punto.py
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/__init__.py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Camino.py
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/__init__.py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/_AddTwoInts.py
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/__init__.py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/_Pan_tilt.py
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python msg __init__.py for messages"
 	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg --initpy
 
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/__init__.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
+/home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/__init__.py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Orientacion.py
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/__init__.py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Pan_tilt_mess.py
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/__init__.py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Punto.py
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/__init__.py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Camino.py
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/__init__.py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/_AddTwoInts.py
 /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/__init__.py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv/_Pan_tilt.py
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champion/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python srv __init__.py for messages"
 	cd /home/champion/catkin_ws/build/messages && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/srv --initpy
 
 messages_generate_messages_py: messages/CMakeFiles/messages_generate_messages_py
+messages_generate_messages_py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Orientacion.py
 messages_generate_messages_py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Pan_tilt_mess.py
 messages_generate_messages_py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Punto.py
 messages_generate_messages_py: /home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Camino.py

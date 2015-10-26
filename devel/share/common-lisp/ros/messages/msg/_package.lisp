@@ -1,6 +1,8 @@
 (cl:defpackage messages-msg
   (:use )
   (:export
+   "<ORIENTACION>"
+   "ORIENTACION"
    "<CAMINO>"
    "CAMINO"
    "<PAN_TILT_MESS>"

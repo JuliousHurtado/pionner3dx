@@ -47,6 +47,7 @@ def agregarGoal(punto_guardian,trayectoria,ida):
     else:
         pose = trayectoria.selfPoint()
         punto_guardian = 0
+        trayectoria.move_pan_tilt()
 
     print pose
     trayectoria.setGoal(pose)
@@ -63,7 +64,7 @@ def move():
 
     while not rospy.is_shutdown():
         if trayectoria.goal_bool:
-            for i in range(10): #200
+            for i in range(200): #200
                 cont = 1
                 success = trayectoria.move_base.wait_for_result(rospy.Duration(cont))
                 #robot.wait(1)
@@ -88,7 +89,7 @@ def move():
                 if success:
                     print "break"
                     break
-
+                
             if not success:
                 trayectoria.move_base.cancel_goal()
                 rospy.loginfo("The base failed to reach the desired pose")
@@ -102,12 +103,12 @@ def move():
             trayectoria.goal_bool = False
 
         else:
-            punto_guardian = agregarGoal(punto_guardian,trayectoria,ida)
+            trayectoria.agregarGoal()
 
-        if punto_guardian == (len(trayectoria.poses_guardian) - 1):
-            ida = False
-        elif punto_guardian == 0:
-            ida = True
+        #if punto_guardian == (len(trayectoria.poses_guardian) - 1):
+        #    ida = False
+        #elif punto_guardian == 0:
+        #    ida = True
 
 
 

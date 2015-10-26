@@ -449,6 +449,7 @@ SET(CMAKE_DEPEND_INFO_FILES
   "detectar_objetos/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake"
   "messages/CMakeFiles/_messages_generate_messages_check_deps_AddTwoInts.dir/DependInfo.cmake"
   "messages/CMakeFiles/_messages_generate_messages_check_deps_Camino.dir/DependInfo.cmake"
+  "messages/CMakeFiles/_messages_generate_messages_check_deps_Orientacion.dir/DependInfo.cmake"
   "messages/CMakeFiles/_messages_generate_messages_check_deps_Pan_tilt.dir/DependInfo.cmake"
   "messages/CMakeFiles/_messages_generate_messages_check_deps_Pan_tilt_mess.dir/DependInfo.cmake"
   "messages/CMakeFiles/_messages_generate_messages_check_deps_Punto.dir/DependInfo.cmake"

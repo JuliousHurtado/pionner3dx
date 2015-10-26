@@ -7,12 +7,13 @@ import struct
 import std_msgs.msg
 
 class Pan_tilt_mess(genpy.Message):
-  _md5sum = "919b8e9b18fec5e324500406fde49f2b"
+  _md5sum = "47917ba31d6b7aec5f5b8d76df4ddbcd"
   _type = "messages/Pan_tilt_mess"
   _has_header = True #flag to mark the presence of a Header object
   _full_text = """Header header
 float64 pan
 float64 tilt
+float64 reset
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -32,8 +33,8 @@ time stamp
 string frame_id
 
 """
-  __slots__ = ['header','pan','tilt']
-  _slot_types = ['std_msgs/Header','float64','float64']
+  __slots__ = ['header','pan','tilt','reset']
+  _slot_types = ['std_msgs/Header','float64','float64','float64']
 
   def __init__(self, *args, **kwds):
     """
@@ -43,7 +44,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,pan,tilt
+       header,pan,tilt,reset
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -58,10 +59,13 @@ string frame_id
         self.pan = 0.
       if self.tilt is None:
         self.tilt = 0.
+      if self.reset is None:
+        self.reset = 0.
     else:
       self.header = std_msgs.msg.Header()
       self.pan = 0.
       self.tilt = 0.
+      self.reset = 0.
 
   def _get_types(self):
     """
@@ -87,7 +91,7 @@ string frame_id
       else:
         buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_struct_2d.pack(_x.pan, _x.tilt))
+      buff.write(_struct_3d.pack(_x.pan, _x.tilt, _x.reset))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
 
@@ -115,8 +119,8 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 16
-      (_x.pan, _x.tilt,) = _struct_2d.unpack(str[start:end])
+      end += 24
+      (_x.pan, _x.tilt, _x.reset,) = _struct_3d.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -141,7 +145,7 @@ string frame_id
       else:
         buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_struct_2d.pack(_x.pan, _x.tilt))
+      buff.write(_struct_3d.pack(_x.pan, _x.tilt, _x.reset))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
 
@@ -170,12 +174,12 @@ string frame_id
         self.header.frame_id = str[start:end]
       _x = self
       start = end
-      end += 16
-      (_x.pan, _x.tilt,) = _struct_2d.unpack(str[start:end])
+      end += 24
+      (_x.pan, _x.tilt, _x.reset,) = _struct_3d.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_2d = struct.Struct("<2d")
 _struct_3I = struct.Struct("<3I")
+_struct_3d = struct.Struct("<3d")

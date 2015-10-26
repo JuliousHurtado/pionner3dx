@@ -1,5 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/messages_generate_messages_py"
+  "/home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Orientacion.py"
   "/home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Pan_tilt_mess.py"
   "/home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Punto.py"
   "/home/champion/catkin_ws/devel/lib/python2.7/dist-packages/messages/msg/_Camino.py"
